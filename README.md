@@ -35,6 +35,7 @@ A skill is a `SKILL.md` file — structured instructions that an AI coding assis
 
 | Your problem | What the skill does | Skill to run | Folder |
 |--------------|---------------------|--------------|--------|
+| Subcontractor COIs expiring with no warning | Track COIs/licenses, auto-remind before expiry | `subcontractor-compliance-tracker` | `1_Trailwise_Toolkit/` |
 | Invoice reconciliation takes days | Match invoices to POs, flag discrepancies | `invoice-reconciliation` | `1_Trailwise_Toolkit/` |
 | Budget overruns discovered too late | Real-time budget vs actual, alert on threshold breach | `budget-variance-tracker` | `1_Trailwise_Toolkit/` |
 | Payment applications take hours | Generate AIA-style pay apps from project data | `payment-app-generator` | `1_Trailwise_Toolkit/` |
