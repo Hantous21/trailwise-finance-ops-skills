@@ -7,6 +7,9 @@ Production-ready finance ops tools. These are the skills you run when you need a
 | Skill | Problem it solves |
 |-------|-------------------|
 | `subcontractor-compliance-tracker` | Track COIs/licenses, auto-remind before expiry, replace the "master spreadsheet" |
+| `month-end-close` | Close checklist, accrual entries, variance analysis, roll-forward schedules |
+| `bank-reconciliation` | Match bank to ledger, flag unmatched items, suggest journal entries |
+| `ar-collections-automation` | AR aging, tiered dunning emails, late payment prediction |
 | `invoice-reconciliation` | Match invoices to POs, flag discrepancies |
 | `budget-variance-tracker` | Real-time budget vs actual with alerts |
 | `cash-flow-forecaster` | Project cash flow, predict shortfalls |
