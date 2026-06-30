@@ -1,7 +1,7 @@
 <h1 align="center">Trailwise Finance Ops Skills</h1>
 
 <p align="center">
-  <strong>AI Agent Skills for Finance Operations Automation</strong>
+  <strong>AI Agent Skills for Construction & Trades Finance Operations</strong>
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@
 
 ## What is this?
 
-A collection of **AI agent skills** for automating finance operations in small and mid-size businesses. Built by a 7-year finance ops veteran, not a software company.
+A collection of **AI agent skills** for automating finance operations. Built by a 7-year finance ops veteran — starting with construction and trades, expanding to other verticals as patterns emerge.
 
 ### What is a "Skill"?
 
@@ -82,6 +82,18 @@ cd finance-ops-skills/1_Trailwise_Toolkit/invoice-reconciliation/
 
 ---
 
+## Flagship Skills (Contractor Cash & Controls Pack)
+
+These five skills are the core product. They solve the most common finance ops pains for construction and trades firms:
+
+| Skill | Outcome |
+|-------|---------|
+| `invoice-reconciliation` | Stop overpaying vendors — match every invoice to a PO |
+| `budget-variance-tracker` | Catch overruns before they happen — real-time alerts |
+| `cash-flow-forecaster` | Know your cash position 8+ weeks out — no surprises |
+| `subcontractor-compliance-tracker` | Never let a COI expire again — automated reminders |
+| `ar-collections-automation` | Get paid faster — tiered dunning + late payment prediction |
+
 ## Implementation Path
 
 | Stage | What you do | Which skills help |
@@ -105,7 +117,7 @@ Most small businesses run finance ops on spreadsheets and email. The gap between
 1. **Own your data** — No vendor lock-in, no per-seat tax, no cloud-only prison
 2. **Understand before automating** — Methodology first, tools second
 3. **AI as multiplier** — Your expertise + AI agents = 10x output, not replacement
-4. **Industry-agnostic** — Finance ops is finance ops. Construction, restaurants, services — same principles apply
+4. **Construction-first, not construction-only** — Finance ops principles are universal, but domain specificity (AIA pay apps, retainage, lien waivers, WIP, change orders) is the moat. Start vertical, expand later
 
 ---
 
@@ -127,7 +139,10 @@ Optional for advanced skills:
 
 ## About Trailwise
 
-**Trailwise** is a finance operations agency. We help small and mid-size businesses streamline their financial workflows, from invoicing to reporting to forecasting. Agency-first, SaaS emerges from client patterns.
+**Trailwise** is a finance operations agency. We help construction firms and trades businesses streamline their financial workflows — from invoicing to reporting to forecasting. Agency-first, SaaS emerges from client patterns.
+
+**Starting vertical:** Construction & trades (GCs, subcontractors, specialty contractors)
+**Expanding to:** Other verticals with similar finance ops pain points
 
 - **Website:** [https://trailwise.com](https://trailwise.com)
 - **Tagline:** Finance operations, handled.
