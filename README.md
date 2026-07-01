@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-11-blue?style=flat-square" alt="Skills">
-  <img src="https://img.shields.io/badge/Categories-4-green?style=flat-square" alt="Categories">
+  <img src="https://img.shields.io/badge/Skills-16-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Categories-5-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
 
@@ -46,6 +46,11 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 | `n8n-invoice-approval` | Auto-route invoices for approval via n8n | `3_Trailwise_Automation/` |
 | `n8n-payment-reminders` | Payment reminder automation | `3_Trailwise_Automation/` |
 | `cost-overrun-prediction` | ML-based cost overrun prediction | `5_Trailwise_Advanced/` |
+| `daily-field-report` | Compile daily field reports with labor hours, delays, safety flags | `6_Contractor_Operations/` |
+| `rfi-management` | Track RFIs, triage by priority, flag overdue items | `6_Contractor_Operations/` |
+| `schedule-delay-analyzer` | CPM critical path analysis, delay simulation, float calculation | `6_Contractor_Operations/` |
+| `submittal-tracker` | Track submittals, calculate required dates, flag late items | `6_Contractor_Operations/` |
+| `data-quality-check` | Validate CSV data against schema, flag duplicates/blanks/invalid types | `2_Trailwise_Methodology/` |
 
 ---
 

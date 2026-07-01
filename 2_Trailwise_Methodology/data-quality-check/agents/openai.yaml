@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Quality Check"
+  short_description: "Validate finance exports before automation"
+  default_prompt: "Use $data-quality-check to profile and validate this finance data export."

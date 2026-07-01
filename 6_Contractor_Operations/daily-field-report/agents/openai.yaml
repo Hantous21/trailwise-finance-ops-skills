@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Field Report"
+  short_description: "Build controlled contractor daily reports"
+  default_prompt: "Use $daily-field-report to compile a contractor daily field report."

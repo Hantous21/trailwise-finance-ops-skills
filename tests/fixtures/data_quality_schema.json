@@ -1,0 +1,8 @@
+{
+  "columns": {
+    "invoice_id": {"type": "string", "required": true},
+    "amount": {"type": "decimal", "required": true},
+    "due_date": {"type": "date", "required": true}
+  },
+  "unique_keys": ["invoice_id"]
+}

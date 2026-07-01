@@ -1,0 +1,4 @@
+interface:
+  display_name: "RFI Management"
+  short_description: "Track RFI aging, urgency, and impacts"
+  default_prompt: "Use $rfi-management to triage and report on project RFIs."

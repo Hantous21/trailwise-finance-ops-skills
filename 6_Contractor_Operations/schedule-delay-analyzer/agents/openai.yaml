@@ -1,0 +1,4 @@
+interface:
+  display_name: "Schedule Delay Analyzer"
+  short_description: "Calculate critical paths and delay impacts"
+  default_prompt: "Use $schedule-delay-analyzer to analyze a project schedule and delay scenario."

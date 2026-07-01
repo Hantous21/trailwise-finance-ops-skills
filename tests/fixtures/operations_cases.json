@@ -1,0 +1,36 @@
+{
+  "daily_field_report": {
+    "project_id": "P-100",
+    "report_date": "2026-07-01",
+    "workers": 4,
+    "hours_per_worker": "8",
+    "expected_labor_hours": "32"
+  },
+  "schedule": {
+    "activities": [
+      {
+        "id": "A",
+        "duration": 3,
+        "predecessors": []
+      },
+      {
+        "id": "B",
+        "duration": 5,
+        "predecessors": [
+          "A"
+        ]
+      },
+      {
+        "id": "C",
+        "duration": 2,
+        "predecessors": [
+          "A"
+        ]
+      }
+    ],
+    "baseline_duration": 8,
+    "delayed_activity": "C",
+    "delay_days": 4,
+    "project_impact_days": 1
+  }
+}

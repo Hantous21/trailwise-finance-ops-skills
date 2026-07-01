@@ -1,0 +1,4 @@
+interface:
+  display_name: "Submittal Tracker"
+  short_description: "Track submittals against required dates"
+  default_prompt: "Use $submittal-tracker to assess submittals and flag schedule risk."
