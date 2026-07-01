@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-16-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Skills-17-blue?style=flat-square" alt="Skills">
   <img src="https://img.shields.io/badge/Categories-5-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
@@ -35,6 +35,7 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 
 | Skill | What it does | Folder |
 |-------|-------------|--------|
+| `payment-app-generator` | Generate AIA G702/G703 pay apps from schedule of values | `1_Trailwise_Toolkit/` |
 | `subcontractor-compliance-tracker` | Track COIs/licenses, auto-remind before expiry | `1_Trailwise_Toolkit/` |
 | `month-end-close` | Close checklist, accruals, variance, roll-forwards | `1_Trailwise_Toolkit/` |
 | `bank-reconciliation` | Auto-match bank to ledger, flag unmatched items | `1_Trailwise_Toolkit/` |
