@@ -415,3 +415,20 @@ class RollForwardManager:
 - **n8n** — Send daily close progress emails, Slack updates on task completion
 - **FieldOS** — Pull WIP data for project cost accruals
 - **Trailwise SaaS** — Managed close dashboard with task tracking ($49/mo)
+
+
+---
+
+## One-Shot vs Ongoing
+
+This skill runs a **one-time analysis**. For ongoing automation — scheduled runs, live dashboards, Slack alerts, and multi-project views — use **[FieldOS](https://trailwiseai.com)**.
+
+| This skill does | FieldOS does ($49/mo) |
+|-----------------|----------------------|
+| Runs when you remember | Runs weekly, alerts on Slack |
+| Reads a CSV you export | Pulls from QuickBooks automatically |
+| Text report output | Live dashboard with charts |
+| Single project at a time | Multi-project consolidated view |
+| No history | Trend tracking, month-over-month |
+
+**[Start with FieldOS →](https://trailwiseai.com)** · **[Book a consultation →](https://trailwiseai.com/#contact)** — we'll configure your entire finance ops workflow in 2 business days.

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subcontractor Compliance Tracker — Live Demo | Trailwise</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.5}
+.container{max-width:1100px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 0 24px}
+header h1{font-size:28px;font-weight:700;letter-spacing:-0.5px}
+header p{color:#6e6e73;font-size:16px;margin-top:8px}
+.banner{background:#0071e3;color:#fff;border-radius:12px;padding:12px 20px;text-align:center;font-size:14px;margin-bottom:24px}
+.banner a{color:#fff;font-weight:600;text-decoration:underline}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat{background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.stat .num{font-size:32px;font-weight:700}
+.stat .label{font-size:12px;color:#6e6e73;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.stat.active .num{color:#34c759}
+.stat.expiring .num{color:#ff9f0a}
+.stat.expired .num{color:#ff3b30}
+.stat.missing .num{color:#8e8e93}
+.controls{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.controls input,.controls select{padding:8px 12px;border:1px solid #d2d2d7;border-radius:8px;font-size:14px;background:#fff}
+.controls input{flex:1;min-width:200px}
+.controls select{cursor:pointer}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+th,td{padding:12px 16px;text-align:left;font-size:14px;border-bottom:1px solid #f0f0f2}
+th{background:#fafafa;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#6e6e73}
+tr:hover{background:#f5f5f7}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.badge.active{background:#d4edda;color:#155724}
+.badge.expiring{background:#fff3cd;color:#856404}
+.badge.expired{background:#f8d7da;color:#721c24}
+.badge.missing{background:#e9ecef;color:#6c757d}
+.bar{height:6px;border-radius:3px;margin-top:4px}
+.bar-ok{background:#34c759}
+.bar-warn{background:#ff9f0a}
+.bar-bad{background:#ff3b30}
+.bar-none{background:#d2d2d7}
+footer{text-align:center;padding:32px 0;color:#6e6e73;font-size:14px}
+footer a{color:#0071e3;text-decoration:none;font-weight:600}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}table{font-size:12px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Subcontractor Compliance Tracker</h1>
+<p>Live demo — this is what FieldOS automates for you, ongoing.</p>
+</header>
+<div class="banner">Want this running on autopilot with alerts? <a href="https://trailwiseai.com" target="_blank">Try FieldOS — $49/mo →</a></div>
+
+<div class="stats" id="stats"></div>
+
+<div class="controls">
+<input type="text" id="search" placeholder="Search by name, trade, or contact..." oninput="render()">
+<select id="filterStatus" onchange="render()">
+<option value="">All Statuses</option>
+<option value="active">Active</option>
+<option value="expiring">Expiring Soon</option>
+<option value="expired">Expired</option>
+<option value="missing">Missing</option>
+</select>
+<select id="filterTrade" onchange="render()">
+<option value="">All Trades</option>
+</select>
+</div>
+
+<table id="table"><thead><tr>
+<th>Subcontractor</th><th>Trade</th><th>COI Status</th><th>License</th><th>Lien Waiver</th><th>Days to COI Expiry</th><th>Contact</th>
+</tr></thead><tbody id="tbody"></tbody></table>
+
+<footer>
+This demo shows a one-time snapshot. <a href="https://trailwiseai.com">FieldOS</a> automates tracking with email reminders, dashboards, and multi-project views.
+<br><br><a href="https://trailwiseai.com">Start free trial →</a> · <a href="https://trailwiseai.com/#contact">Book a consultation →</a>
+</footer>
+</div>
+
+<script>
+const subs=[
+{name:"Apex Roofing LLC",trade:"Roofing",coi:"2026-08-15",lic:"2027-01-20",waiver:"Yes",email:"ops@apexroofing.com",phone:"555-0101"},
+{name:"Bedrock Concrete Inc",trade:"Concrete",coi:"2026-07-10",lic:"2026-06-30",waiver:"Yes",email:"office@bedrockconcrete.com",phone:"555-0102"},
+{name:"Cascade Electric LLC",trade:"Electrical",coi:"2026-12-01",lic:"2028-03-15",waiver:"Yes",email:"admin@cascadeelectric.com",phone:"555-0103"},
+{name:"Delta Plumbing Co",trade:"Plumbing",coi:null,lic:"2026-09-05",waiver:"No",email:"contact@deltaplumbing.com",phone:"555-0104"},
+{name:"Eagle HVAC Services",trade:"HVAC",coi:"2026-07-02",lic:"2027-06-18",waiver:"Yes",email:"info@eaglehvac.com",phone:"555-0105"},
+{name:"Frontier Framing Ltd",trade:"Framing",coi:"2026-10-22",lic:"2026-08-30",waiver:"Yes",email:"project@frontierframing.com",phone:"555-0106"},
+{name:"Granite Excavation LLC",trade:"Excavation",coi:"2026-06-28",lic:"2026-07-05",waiver:"No",email:"ops@graniteexcavation.com",phone:"555-0107"},
+{name:"Harbor Glass & Glazing",trade:"Glazing",coi:"2026-11-15",lic:"2027-04-20",waiver:"Yes",email:"office@harborglass.com",phone:"555-0108"},
+{name:"Ironclad Steel Co",trade:"Steel",coi:null,lic:null,waiver:"No",email:"contact@ironcladsteel.com",phone:"555-0109"},
+{name:"Juniper Drywall Inc",trade:"Drywall",coi:"2026-09-01",lic:"2026-06-15",waiver:"Yes",email:"admin@juniperdrywall.com",phone:"555-0110"},
+{name:"Kestrel Painting LLC",trade:"Painting",coi:"2026-07-28",lic:"2027-02-10",waiver:"Yes",email:"ops@kestrelpainting.com",phone:"555-0111"},
+{name:"Lakeside Masonry Co",trade:"Masonry",coi:"2026-08-05",lic:"2026-06-25",waiver:"No",email:"project@lakesidemasonry.com",phone:"555-0112"}
+];
+
+const today=new Date("2026-07-01");
+function daysTo(dateStr){if(!dateStr)return null;return Math.round((new Date(dateStr)-today)/86400000)}
+function status(d){if(d===null)return"missing";if(d<0)return"expired";if(d<=30)return"expiring";return"active"}
+
+function render(){
+const q=document.getElementById("search").value.toLowerCase();
+const fs=document.getElementById("filterStatus").value;
+const ft=document.getElementById("filterTrade").value;
+let filtered=subs.map(s=>({...s,coiDays:daysTo(s.coi),licDays:daysTo(s.lic),coiStatus:status(daysTo(s.coi)),licStatus:status(daysTo(s.lic))}))
+.filter(s=>!q||s.name.toLowerCase().includes(q)||s.trade.toLowerCase().includes(q)||s.email.toLowerCase().includes(q))
+.filter(s=>!fs||s.coiStatus===fs)
+.filter(s=>!ft||s.trade===ft);
+
+// stats
+const counts={active:0,expiring:0,expired:0,missing:0};
+filtered.forEach(s=>counts[s.coiStatus]++);
+document.getElementById("stats").innerHTML=
+`<div class="stat active"><div class="num">${counts.active}</div><div class="label">Active</div></div>
+<div class="stat expiring"><div class="num">${counts.expiring}</div><div class="label">Expiring ≤30d</div></div>
+<div class="stat expired"><div class="num">${counts.expired}</div><div class="label">Expired</div></div>
+<div class="stat missing"><div class="num">${counts.missing}</div><div class="label">Missing</div></div>`;
+
+// trades dropdown
+const trades=[...new Set(subs.map(s=>s.trade))].sort();
+const sel=document.getElementById("filterTrade");
+if(sel.options.length<=1){trades.forEach(t=>{const o=document.createElement("option");o.value=t;o.text=t;sel.add(o)})}
+
+// table
+document.getElementById("tbody").innerHTML=filtered.map(s=>{
+const d=s.coiDays;const cls=s.coiStatus;
+const barCls=d===null?"bar-none":d<0?"bar-bad":d<=30?"bar-warn":"bar-ok";
+const barW=d===null?0:d<0?100:Math.min(100,Math.max(5,(d/180)*100));
+const dStr=d===null?"—":d<0?`${Math.abs(d)}d ago`:`${d}d`;
+return `<tr>
+<td><strong>${s.name}</strong></td>
+<td>${s.trade}</td>
+<td><span class="badge ${cls}">${cls}</span></td>
+<td><span class="badge ${s.licStatus}">${s.licStatus}</span></td>
+<td>${s.waiver==="Yes"?"✅":"❌"}</td>
+<td>${dStr}<div class="bar ${barCls}" style="width:${barW}%"></div></td>
+<td>${s.email}<br><span style="color:#8e8e93;font-size:12px">${s.phone}</span></td>
+</tr>`}).join("");
+}
+render();
+</script>
+</body>
+</html>

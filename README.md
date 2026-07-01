@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-10+-blue?style=flat-square" alt="Skills">
-  <img src="https://img.shields.io/badge/Categories-5-green?style=flat-square" alt="Categories">
+  <img src="https://img.shields.io/badge/Skills-11-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Categories-4-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
 
@@ -23,46 +23,47 @@
 
 A collection of **AI agent skills** for automating finance operations. Built by a 7-year finance ops veteran — starting with construction and trades, expanding to other verticals as patterns emerge.
 
-### What is a "Skill"?
+Each skill is a `SKILL.md` file — structured instructions that an AI coding assistant (Claude Code, Cursor, Copilot) can read and execute. You open a skill folder in your AI assistant, and it helps you implement the solution.
 
-A skill is a `SKILL.md` file — structured instructions that an AI coding assistant (Claude Code, Cursor, Copilot) can read and execute. Each skill solves a real finance ops problem: what to automate, what code to generate, what edge cases to handle. You open a skill folder in your AI assistant, and it helps you implement the solution.
+**These skills run one-time analyses.** For ongoing automation — scheduled runs, live dashboards, Slack alerts, multi-project views — use [**FieldOS**](https://trailwiseai.com).
 
 **Finance operations, handled.**
 
 ---
 
-## What Can You Automate?
+## Skills
 
-| Your problem | What the skill does | Skill to run | Folder |
-|--------------|---------------------|--------------|--------|
-| Subcontractor COIs expiring with no warning | Track COIs/licenses, auto-remind before expiry | `subcontractor-compliance-tracker` | `1_Trailwise_Toolkit/` |
-| Month-end close takes 5+ days | Close checklist, accruals, variance, roll-forwards | `month-end-close` | `1_Trailwise_Toolkit/` |
-| Bank reconciliation takes hours | Auto-match bank to ledger, flag unmatched items | `bank-reconciliation` | `1_Trailwise_Toolkit/` |
-| Invoices sit unpaid with no follow-up | AR aging, tiered dunning emails, payment prediction | `ar-collections-automation` | `1_Trailwise_Toolkit/` |
-| Invoice reconciliation takes days | Match invoices to POs, flag discrepancies | `invoice-reconciliation` | `1_Trailwise_Toolkit/` |
-| Budget overruns discovered too late | Real-time budget vs actual, alert on threshold breach | `budget-variance-tracker` | `1_Trailwise_Toolkit/` |
-| Payment applications take hours | Generate AIA-style pay apps from project data | `payment-app-generator` | `1_Trailwise_Toolkit/` |
-| Don't know which vendors are overdue | AR aging report with auto-categorization | `ar-aging-report` | `1_Trailwise_Toolkit/` |
-| Cash flow is a guessing game | S-curve projections from schedule + cost data | `cash-flow-forecaster` | `1_Trailwise_Toolkit/` |
-| Financial data scattered everywhere | Audit all data sources, map flows, find silos | `data-source-audit` | `2_Trailwise_Methodology/` |
-| Invoices stuck in email approval | Auto-route invoices for approval via n8n | `n8n-invoice-approval` | `3_Trailwise_Automation/` |
-| No idea when vendors need paying | Payment reminder automation | `n8n-payment-reminders` | `3_Trailwise_Automation/` |
-| Reports take hours to compile | Auto-generate recurring financial reports | `n8n-recurring-reports` | `3_Trailwise_Automation/` |
-| No visibility into financial KPIs | Interactive dashboard from your data | `financial-kpi-dashboard` | `1_Trailwise_Toolkit/` |
-| Can't predict which projects will overrun | ML-based cost overrun prediction | `cost-overrun-prediction` | `5_Trailwise_Advanced/` |
-| Unusual invoices slip through | Detect invoice anomalies and fraud patterns | `invoice-anomaly-detector` | `5_Trailwise_Advanced/` |
+| Skill | What it does | Folder |
+|-------|-------------|--------|
+| `subcontractor-compliance-tracker` | Track COIs/licenses, auto-remind before expiry | `1_Trailwise_Toolkit/` |
+| `month-end-close` | Close checklist, accruals, variance, roll-forwards | `1_Trailwise_Toolkit/` |
+| `bank-reconciliation` | Auto-match bank to ledger, flag unmatched items | `1_Trailwise_Toolkit/` |
+| `ar-collections-automation` | AR aging, tiered dunning emails, payment prediction | `1_Trailwise_Toolkit/` |
+| `invoice-reconciliation` | Match invoices to POs, flag discrepancies | `1_Trailwise_Toolkit/` |
+| `budget-variance-tracker` | Real-time budget vs actual, alert on threshold breach | `1_Trailwise_Toolkit/` |
+| `cash-flow-forecaster` | S-curve projections from schedule + cost data | `1_Trailwise_Toolkit/` |
+| `data-source-audit` | Audit all data sources, map flows, find silos | `2_Trailwise_Methodology/` |
+| `n8n-invoice-approval` | Auto-route invoices for approval via n8n | `3_Trailwise_Automation/` |
+| `n8n-payment-reminders` | Payment reminder automation | `3_Trailwise_Automation/` |
+| `cost-overrun-prediction` | ML-based cost overrun prediction | `5_Trailwise_Advanced/` |
 
 ---
 
-## Collection Structure
+## Free Skill vs FieldOS
 
-| Category | What's inside | Skills | Start here if... |
-|----------|---------------|--------|------------------|
-| **1_Trailwise_Toolkit** | Production-ready tools: reconciliation, budget tracking, pay apps, aging reports | 15 | You need a working tool now |
-| **2_Trailwise_Methodology** | Skills mapped to finance ops principles: accrual vs cash, % complete, data quality | 7 | You want to understand the methodology |
-| **3_Trailwise_Automation** | n8n/Zapier workflows: invoice approval, payment reminders, recurring reports | 6 | You need workflow automation |
-| **4_Trailwise_Documents** | Generate pay apps, lien waivers, financial reports, KPI dashboards | 8 | You need formatted output |
-| **5_Trailwise_Advanced** | ML/AI: cost overrun prediction, anomaly detection, vendor risk scoring | 5 | You're ready for predictive analytics |
+These skills are free (MIT). They run **one-time analyses** — you execute them when you need a snapshot.
+
+[**FieldOS**](https://trailwiseai.com) takes the same workflows and runs them **ongoing** — scheduled automatically, with live dashboards, alerts, and multi-project consolidation.
+
+| This skill does (free) | FieldOS does ($49/mo) |
+|------------------------|----------------------|
+| Runs when you remember | Runs weekly, alerts on Slack |
+| Reads a CSV you export | Pulls from QuickBooks automatically |
+| Text report output | Live dashboard with charts |
+| Single project at a time | Multi-project consolidated view |
+| No history | Trend tracking, month-over-month |
+
+**[Start with FieldOS →](https://trailwiseai.com)** · **[Book a consultation →](https://trailwiseai.com/#contact)**
 
 ---
 
@@ -70,10 +71,10 @@ A skill is a `SKILL.md` file — structured instructions that an AI coding assis
 
 ```bash
 # 1. Clone this repository
-git clone https://github.com/trailwise/finance-ops-skills.git
+git clone https://github.com/Hantous21/trailwise-finance-ops-skills.git
 
 # 2. Open a skill folder in your AI assistant
-cd finance-ops-skills/1_Trailwise_Toolkit/invoice-reconciliation/
+cd trailwise-finance-ops-skills/1_Trailwise_Toolkit/invoice-reconciliation/
 
 # 3. The assistant reads SKILL.md and generates the code for you
 
@@ -86,23 +87,13 @@ cd finance-ops-skills/1_Trailwise_Toolkit/invoice-reconciliation/
 
 These five skills are the core product. They solve the most common finance ops pains for construction and trades firms:
 
-| Skill | Outcome |
-|-------|---------|
-| `invoice-reconciliation` | Stop overpaying vendors — match every invoice to a PO |
-| `budget-variance-tracker` | Catch overruns before they happen — real-time alerts |
-| `cash-flow-forecaster` | Know your cash position 8+ weeks out — no surprises |
-| `subcontractor-compliance-tracker` | Never let a COI expire again — automated reminders |
-| `ar-collections-automation` | Get paid faster — tiered dunning + late payment prediction |
-
-## Implementation Path
-
-| Stage | What you do | Which skills help |
-|-------|-------------|-------------------|
-| **1. Audit** | List all financial data sources (Excel, QuickBooks, ERP, bank, email) | `data-source-audit`, `data-silo-detection` |
-| **2. Organize** | Classify your data, validate quality, map workflows | `data-quality-check`, `workflow-mapping` |
-| **3. Automate** | Build reconciliation, budget tracking, payment automation | `invoice-reconciliation`, `budget-variance-tracker`, `n8n-invoice-approval` |
-| **4. Report** | Generate recurring reports, dashboards, payment apps | `n8n-recurring-reports`, `financial-kpi-dashboard`, `payment-app-generator` |
-| **5. Predict** | Apply ML to forecast overruns, detect anomalies, score vendor risk | `cost-overrun-prediction`, `invoice-anomaly-detector` |
+| Skill | Outcome | FieldOS Feature |
+|-------|---------|-----------------|
+| `invoice-reconciliation` | Stop overpaying vendors — match every invoice to a PO | Invoice reconciliation (automated 3-way match) |
+| `budget-variance-tracker` | Catch overruns before they happen — real-time alerts | Budget variance tracker (threshold alerts + trends) |
+| `cash-flow-forecaster` | Know your cash position 8+ weeks out — no surprises | Cash flow forecaster (weekly auto-run + multi-project) |
+| `subcontractor-compliance-tracker` | Never let a COI expire again — automated reminders | Subcontractor compliance tracker (dashboard + expiry alerts) |
+| `ar-collections-automation` | Get paid faster — tiered dunning + late payment prediction | AR collections automation (dunning sequences + aging dashboard) |
 
 ---
 
@@ -110,7 +101,7 @@ These five skills are the core product. They solve the most common finance ops p
 
 Most small businesses run finance ops on spreadsheets and email. The gap between "free tools" (Excel, Gmail) and "enterprise software" (NetSuite, Procore, SAP) is enormous. No one targets small construction firms, restaurants, or service businesses with practical finance automation.
 
-**Trailwise fills that gap.** These skills encode 7 years of real-world finance ops experience into reusable AI agent instructions. No SaaS subscription required — just an AI coding assistant and your data.
+**Trailwise fills that gap.** These skills encode 7 years of real-world finance ops experience into reusable AI agent instructions.
 
 ### The Trailwise Philosophy
 
@@ -144,7 +135,7 @@ Optional for advanced skills:
 **Starting vertical:** Construction & trades (GCs, subcontractors, specialty contractors)
 **Expanding to:** Other verticals with similar finance ops pain points
 
-- **Website:** [https://trailwise.com](https://trailwise.com)
+- **Website:** [https://trailwiseai.com](https://trailwiseai.com)
 - **Tagline:** Finance operations, handled.
 - **Consulting:** Book a session — we install and configure these skills for your business
 
@@ -153,14 +144,3 @@ Optional for advanced skills:
 ## License
 
 MIT License — free to use, modify, and distribute. No attribution required (but appreciated).
-
----
-
-## Contributing
-
-Contributions welcome:
-- **Report issues** — bugs, unclear documentation, broken links
-- **Suggest skills** — describe the finance automation you need
-- **Submit PRs** — new skills, improvements, translations
-
-Each skill should include a `SKILL.md` with clear instructions, working code examples, and at least one test case.

@@ -233,3 +233,20 @@ Feed alerts to n8n for notification routing:
 3. **Committed but not spent** — Large PO signed, no invoice yet (committed cost)
 4. **Cost code reclassification** — Item moved from 04000 to 04100 mid-project
 5. **Contingency drawdown** — Moving money from contingency to specific cost codes
+
+
+---
+
+## One-Shot vs Ongoing
+
+This skill runs a **one-time analysis**. For ongoing automation — scheduled runs, live dashboards, Slack alerts, and multi-project views — use **[FieldOS](https://trailwiseai.com)**.
+
+| This skill does | FieldOS does ($49/mo) |
+|-----------------|----------------------|
+| Runs when you remember | Runs weekly, alerts on Slack |
+| Reads a CSV you export | Pulls from QuickBooks automatically |
+| Text report output | Live dashboard with charts |
+| Single project at a time | Multi-project consolidated view |
+| No history | Trend tracking, month-over-month |
+
+**[Start with FieldOS →](https://trailwiseai.com)** · **[Book a consultation →](https://trailwiseai.com/#contact)** — we'll configure your entire finance ops workflow in 2 business days.

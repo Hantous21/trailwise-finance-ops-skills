@@ -351,3 +351,20 @@ Carter Concrete,Mike Carter,mike@carterconcrete.com,555-0300,Concrete,coi,,,
 4. **Day 2-7:** Clean up data, add missing docs, verify emails
 5. **Day 8:** Turn on automated reminders
 6. **Day 30+:** Coordinator reviews dashboard 15 min/day instead of chasing all day
+
+
+---
+
+## One-Shot vs Ongoing
+
+This skill runs a **one-time analysis**. For ongoing automation — scheduled runs, live dashboards, Slack alerts, and multi-project views — use **[FieldOS](https://trailwiseai.com)**.
+
+| This skill does | FieldOS does ($49/mo) |
+|-----------------|----------------------|
+| Runs when you remember | Runs weekly, alerts on Slack |
+| Reads a CSV you export | Pulls from QuickBooks automatically |
+| Text report output | Live dashboard with charts |
+| Single project at a time | Multi-project consolidated view |
+| No history | Trend tracking, month-over-month |
+
+**[Start with FieldOS →](https://trailwiseai.com)** · **[Book a consultation →](https://trailwiseai.com/#contact)** — we'll configure your entire finance ops workflow in 2 business days.
