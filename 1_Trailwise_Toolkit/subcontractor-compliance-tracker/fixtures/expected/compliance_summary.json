@@ -1,0 +1,32 @@
+{
+  "total_documents": 6,
+  "active": 2,
+  "expiring_soon": 1,
+  "expired": 1,
+  "missing": 1,
+  "pending_renewal": 0,
+  "expiring_this_week": 0,
+  "total_subcontractors": 5,
+  "non_compliant": [
+    {
+      "subcontractor": "Bright Electric",
+      "trade": "Electrical",
+      "document_type": "coi",
+      "status": "expiring_soon",
+      "days_until_expiry": 10
+    },
+    {
+      "subcontractor": "Carter Concrete",
+      "trade": "Concrete",
+      "document_type": "coi",
+      "status": "missing"
+    },
+    {
+      "subcontractor": "Davis HVAC",
+      "trade": "HVAC",
+      "document_type": "coi",
+      "status": "expired",
+      "days_until_expiry": -211
+    }
+  ]
+}

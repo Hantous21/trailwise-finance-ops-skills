@@ -1,0 +1,9 @@
+date,amount,direction,description,confidence,source
+2026-07-01,-8000,outflow,Payroll - biweekly,1.0,payroll
+2026-07-01,-3500,outflow,Office rent,1.0,overhead
+2026-07-08,25000,inflow,Client payment - invoice #1042,0.7,client
+2026-07-10,-12000,outflow,Vendor payment - Acme Supply,0.9,vendor
+2026-07-15,-8000,outflow,Payroll - biweekly,1.0,payroll
+2026-07-22,15000,inflow,Client payment - invoice #1045,0.6,client
+2026-07-29,-8000,outflow,Payroll - biweekly,1.0,payroll
+2026-07-29,-3500,outflow,Office rent,1.0,overhead

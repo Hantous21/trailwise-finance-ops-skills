@@ -1,0 +1,3 @@
+receipt_number,po_number,received_date,sku,qty_received
+GR-001,PO-2026-045,2026-06-10,SKU-100,50
+GR-001,PO-2026-045,2026-06-10,SKU-200,100

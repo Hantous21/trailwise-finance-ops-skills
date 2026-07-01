@@ -1,0 +1,16 @@
+{
+  "opening_balance": 50000,
+  "start_date": "2026-07-01",
+  "weeks_projected": 4,
+  "closing_balance": 49500,
+  "peak_balance": 67000,
+  "trough_balance": 36500,
+  "shortfalls": [],
+  "weekly_positions": [
+    {"week": "2026-07-01", "inflows": 25000, "outflows": 11500, "net": 13500, "closing": 63500},
+    {"week": "2026-07-08", "inflows": 25000, "outflows": 12000, "net": 13000, "closing": 76500},
+    {"week": "2026-07-15", "inflows": 15000, "outflows": 11500, "net": 3500, "closing": 80000},
+    {"week": "2026-07-22", "inflows": 15000, "outflows": 11500, "net": 3500, "closing": 83500}
+  ],
+  "burn_rate": 11500
+}

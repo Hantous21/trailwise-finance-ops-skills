@@ -1,0 +1,11 @@
+{
+  "invoice_number": "INV-001",
+  "po_number": "PO-2026-045",
+  "match_status": "price_variance",
+  "approval_action": "review",
+  "price_variance": 25.0,
+  "qty_variance": 0,
+  "notes": [
+    "Price variance: SKU-100 invoiced $28.50 vs PO $28.00 (1.8% diff)"
+  ]
+}

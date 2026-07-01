@@ -1,0 +1,6 @@
+cost_code,category,description,budgeted_amount,spent_to_date,committed,percent_complete
+04000,Materials,Concrete - Foundation,25000,18000,5000,75
+05100,Labor,Steel Erection,45000,30000,0,60
+06200,Subcontract,Plumbing Rough-in,38000,15000,12000,40
+07100,Materials,Finishes - Drywall,22000,20000,5000,85
+08100,Subcontract,Electrical,55000,10000,0,15

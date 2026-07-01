@@ -1,0 +1,7 @@
+company_name,contact_name,contact_email,contact_phone,trade,document_type,expiration_date,policy_number,notes
+Acme Plumbing,John Smith,john@acmeplumb.com,555-0100,Plumbing,coi,2026-08-15,POL-12345,Renews annually
+Acme Plumbing,John Smith,john@acmeplumb.com,555-0100,Plumbing,license,2026-12-31,LIC-789,Master plumber
+Bright Electric,Sarah Lee,sarah@brightelec.com,555-0200,Electrical,coi,2026-07-10,POL-67890,Expiring soon
+Carter Concrete,Mike Carter,mike@carterconcrete.com,555-0300,Concrete,coi,,,
+Davis HVAC,Dave Wilson,dave@davishvac.com,555-0400,HVAC,coi,2025-12-01,POL-11111,EXPIRED
+Ewing Steel,Tom Ewing,tom@ewingsteel.com,555-0500,Steel,coi,2026-11-20,POL-22222,Active
