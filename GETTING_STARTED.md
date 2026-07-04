@@ -57,7 +57,7 @@ QuickBooks, Excel, bank exports, email attachments, PDF invoices — these are a
 
 Before automating anything, understand what you have.
 
-**Run:** `data-source-audit`, `data-silo-detection`
+**Run:** `data-source-audit`
 
 List every place financial data lives in your company:
 - Accounting software (QuickBooks, Xero, Sage)
@@ -69,7 +69,7 @@ List every place financial data lives in your company:
 
 ### Step 2: Organize and Validate
 
-**Run:** `data-quality-check`, `workflow-mapping`
+**Run:** `data-quality-check`
 
 Classify your data and identify quality issues:
 - Duplicates across systems
@@ -79,7 +79,7 @@ Classify your data and identify quality issues:
 
 ### Step 3: Automate Core Processes
 
-**Run:** `invoice-reconciliation`, `budget-variance-tracker`, `ar-aging-report`, `n8n-invoice-approval`
+**Run:** `invoice-reconciliation`, `budget-variance-tracker`, `ar-collections-automation`, `n8n-invoice-approval`
 
 Build the core automation layer:
 - Auto-match invoices to POs
@@ -89,7 +89,7 @@ Build the core automation layer:
 
 ### Step 4: Generate Reports
 
-**Run:** `n8n-recurring-reports`, `financial-kpi-dashboard`, `payment-app-generator`, `cash-flow-forecaster`
+**Run:** `n8n-payment-reminders`, `payment-app-generator`, `cash-flow-forecaster`
 
 Create the reporting layer:
 - Auto-generate weekly/monthly financial reports
@@ -99,12 +99,10 @@ Create the reporting layer:
 
 ### Step 5: Predict
 
-**Run:** `cost-overrun-prediction`, `invoice-anomaly-detector`, `vendor-risk-scorer`
+**Run:** `cost-overrun-prediction`
 
 Apply ML to find patterns:
 - Which projects will likely overrun?
-- Which invoices look unusual?
-- Which vendors are highest risk?
 
 ---
 

@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-17-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Skills-18-blue?style=flat-square" alt="Skills">
   <img src="https://img.shields.io/badge/Categories-5-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
@@ -36,6 +36,7 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 | Skill | What it does | Folder |
 |-------|-------------|--------|
 | `payment-app-generator` | Generate AIA G702/G703 pay apps from schedule of values | `1_Trailwise_Toolkit/` |
+| `change-order-tracker` | Classify, score, and track change orders with dispute packet generation | `1_Trailwise_Toolkit/` |
 | `subcontractor-compliance-tracker` | Track COIs/licenses, auto-remind before expiry | `1_Trailwise_Toolkit/` |
 | `month-end-close` | Close checklist, accruals, variance, roll-forwards | `1_Trailwise_Toolkit/` |
 | `bank-reconciliation` | Auto-match bank to ledger, flag unmatched items | `1_Trailwise_Toolkit/` |
@@ -82,9 +83,13 @@ git clone https://github.com/Hantous21/trailwise-finance-ops-skills.git
 # 2. Open a skill folder in your AI assistant
 cd trailwise-finance-ops-skills/1_Trailwise_Toolkit/invoice-reconciliation/
 
-# 3. The assistant reads SKILL.md and generates the code for you
+# 3. The assistant reads SKILL.md (workflow + controls + reference)
+#    and uses the pre-built script in scripts/ as the implementation
 
-# 4. Review, adapt to your data, and run
+# 4. Run the script against your data, review the output
+python3 scripts/invoice_reconciliation.py --help
+
+# 5. Adapt to your data format and integrate into your workflow
 ```
 
 ---

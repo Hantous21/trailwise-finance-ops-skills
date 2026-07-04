@@ -13,8 +13,8 @@ All 5 stress-tested skills pass load, property, and fuzz tests. One P2 finding (
 | Python | 3.14.4 |
 | Baseline tests | 19 passed, 0.43s |
 | `validate_skills.py` | FAIL (exit 1) — 11 original skills have extra frontmatter keys + missing `agents/openai.yaml`. Predates stress test. |
-| Final tests | 136 passed, 14.99s |
-| New tests added | 117 across 5 files |
+| Final tests | 196 passed, 8.85s |
+| New tests added | 117 stress + 60 fixture = 177 across 10 files |
 
 ---
 
@@ -172,6 +172,11 @@ Fixture file: `tests/fixtures/forward_test_cases.json`
 | `tests/test_stress_submittal_tracker.py` | 20 stress/property/fuzz tests |
 | `tests/test_stress_schedule_delay_analyzer.py` | 24 stress/property/fuzz tests |
 | `tests/test_stress_data_quality_check.py` | 22 stress/property/fuzz tests |
+| `tests/test_ar_collections.py` | 5 fixture/property tests |
+| `tests/test_budget_variance_tracker.py` | 13 fixture/property tests |
+| `tests/test_cash_flow_forecaster.py` | 20 fixture/property tests |
+| `tests/test_invoice_reconciliation.py` | 9 fixture/property tests |
+| `tests/test_subcontractor_compliance_tracker.py` | 13 fixture/property tests |
 | `STRESS_TEST_REPORT.md` | This report |
 
 ---
