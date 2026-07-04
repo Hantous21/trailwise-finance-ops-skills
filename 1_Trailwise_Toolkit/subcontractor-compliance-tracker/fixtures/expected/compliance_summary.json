@@ -1,32 +1,112 @@
 {
-  "total_documents": 6,
-  "active": 2,
-  "expiring_soon": 1,
-  "expired": 1,
-  "missing": 1,
-  "pending_renewal": 0,
-  "expiring_this_week": 0,
-  "total_subcontractors": 5,
+  "summary": {
+    "total_documents": 6,
+    "active": 3,
+    "expiring_soon": 1,
+    "expired": 1,
+    "missing": 1,
+    "pending_renewal": 0,
+    "expiring_this_week": 1,
+    "total_subcontractors": 5
+  },
   "non_compliant": [
-    {
-      "subcontractor": "Bright Electric",
-      "trade": "Electrical",
-      "document_type": "coi",
-      "status": "expiring_soon",
-      "days_until_expiry": 10
-    },
     {
       "subcontractor": "Carter Concrete",
       "trade": "Concrete",
       "document_type": "coi",
-      "status": "missing"
+      "status": "missing",
+      "expiration_date": null,
+      "days_expired": null,
+      "contact_email": "mike@carterconcrete.com"
     },
     {
       "subcontractor": "Davis HVAC",
       "trade": "HVAC",
       "document_type": "coi",
       "status": "expired",
-      "days_until_expiry": -211
+      "expiration_date": "2025-12-01",
+      "days_expired": 214,
+      "contact_email": "dave@davishvac.com"
+    }
+  ],
+  "full_report": [
+    {
+      "company_name": "Acme Plumbing",
+      "trade": "Plumbing",
+      "contact_name": "John Smith",
+      "contact_email": "john@acmeplumb.com",
+      "document_type": "coi",
+      "status": "active",
+      "issued_date": "",
+      "expiration_date": "2026-08-15",
+      "days_until_expiry": 43,
+      "policy_number": "POL-12345",
+      "notes": "Renews annually"
+    },
+    {
+      "company_name": "Acme Plumbing",
+      "trade": "Plumbing",
+      "contact_name": "John Smith",
+      "contact_email": "john@acmeplumb.com",
+      "document_type": "license",
+      "status": "active",
+      "issued_date": "",
+      "expiration_date": "2026-12-31",
+      "days_until_expiry": 181,
+      "policy_number": "LIC-789",
+      "notes": "Master plumber"
+    },
+    {
+      "company_name": "Bright Electric",
+      "trade": "Electrical",
+      "contact_name": "Sarah Lee",
+      "contact_email": "sarah@brightelec.com",
+      "document_type": "coi",
+      "status": "expiring_soon",
+      "issued_date": "",
+      "expiration_date": "2026-07-10",
+      "days_until_expiry": 7,
+      "policy_number": "POL-67890",
+      "notes": "Expiring soon"
+    },
+    {
+      "company_name": "Carter Concrete",
+      "trade": "Concrete",
+      "contact_name": "Mike Carter",
+      "contact_email": "mike@carterconcrete.com",
+      "document_type": "coi",
+      "status": "missing",
+      "issued_date": "",
+      "expiration_date": "",
+      "days_until_expiry": null,
+      "policy_number": "nan",
+      "notes": "nan"
+    },
+    {
+      "company_name": "Davis HVAC",
+      "trade": "HVAC",
+      "contact_name": "Dave Wilson",
+      "contact_email": "dave@davishvac.com",
+      "document_type": "coi",
+      "status": "expired",
+      "issued_date": "",
+      "expiration_date": "2025-12-01",
+      "days_until_expiry": -214,
+      "policy_number": "POL-11111",
+      "notes": "EXPIRED"
+    },
+    {
+      "company_name": "Ewing Steel",
+      "trade": "Steel",
+      "contact_name": "Tom Ewing",
+      "contact_email": "tom@ewingsteel.com",
+      "document_type": "coi",
+      "status": "active",
+      "issued_date": "",
+      "expiration_date": "2026-11-20",
+      "days_until_expiry": 140,
+      "policy_number": "POL-22222",
+      "notes": "Active"
     }
   ]
 }

@@ -1,25 +1,19 @@
 {
-  "total_outstanding": 112000,
-  "overdue_amount": 72000,
-  "at_risk_amount": 22000,
-  "at_risk_count": 1,
+  "total_outstanding": 81000,
+  "overdue_amount": 56000,
+  "at_risk_amount": 0,
+  "at_risk_count": 0,
   "aging_summary": {
     "current": 25000,
     "31_60": 18000,
     "61_90": 16000,
     "90_plus": 22000
   },
-  "top_risk_clients": [
-    {
-      "client": "Ewing Partners",
-      "amount": 22000,
-      "risk": "high"
-    }
-  ],
   "dunning_stages": [
     {"invoice": "INV-1002", "client": "Riverside Development", "stage": "none", "days_past_due": 0},
-    {"invoice": "INV-1003", "client": "Bright Estates", "stage": "firm", "days_past_due": 46},
+    {"invoice": "INV-1003", "client": "Bright Estates", "stage": "final", "days_past_due": 46},
     {"invoice": "INV-1004", "client": "Carter Holdings", "stage": "final", "days_past_due": 90, "balance": 16000},
     {"invoice": "INV-1006", "client": "Ewing Partners", "stage": "escalated", "days_past_due": 107}
-  ]
+  ],
+  "top_risk_clients": []
 }

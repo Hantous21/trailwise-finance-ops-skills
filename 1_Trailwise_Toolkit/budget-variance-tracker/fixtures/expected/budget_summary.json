@@ -1,38 +1,40 @@
 {
   "project": "Riverside Office Building",
-  "total_budget": 185000,
-  "total_spent_committed": 115000,
-  "total_forecast": 145000,
-  "projected_variance": 40000,
-  "projected_variance_pct": 21.6,
-  "lines_over_budget": 0,
-  "over_budget_codes": [],
-  "remaining_budget": 70000,
+  "total_budget": 185000.0,
+  "total_spent_committed": 115000.0,
+  "total_forecast": 201696.08,
+  "projected_variance": -16696.08,
+  "projected_variance_pct": -9.0,
+  "lines_over_budget": 1,
+  "over_budget_codes": [
+    "07100"
+  ],
+  "remaining_budget": 70000.0,
   "alerts": [
     {
-      "cost_code": "07100",
+      "cost_code": "04000",
       "level": "orange",
-      "message": "APPROACHING LIMIT: 07100 at 113.6% of budget"
+      "message": "APPROACHING LIMIT: 04000 at 92% of budget"
     },
     {
       "cost_code": "05100",
-      "level": "yellow",
-      "message": "MONITOR: 05100 at 66.7% of budget"
-    },
-    {
-      "cost_code": "04000",
-      "level": "yellow",
-      "message": "MONITOR: 04000 at 92.0% of budget"
+      "level": "critical",
+      "message": "FORECAST OVER BUDGET: 05100 projected at $50,000 vs budget $45,000"
     },
     {
       "cost_code": "06200",
-      "level": "yellow",
-      "message": "MONITOR: 06200 at 71.1% of budget"
+      "level": "green",
+      "message": "On track: 06200 at 71% of budget"
+    },
+    {
+      "cost_code": "07100",
+      "level": "red",
+      "message": "OVER THRESHOLD: 07100 at 114% of budget"
     },
     {
       "cost_code": "08100",
-      "level": "green",
-      "message": "On track: 08100 at 18.2% of budget"
+      "level": "critical",
+      "message": "FORECAST OVER BUDGET: 08100 projected at $66,667 vs budget $55,000"
     }
   ]
 }

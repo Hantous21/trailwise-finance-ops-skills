@@ -1,0 +1,76 @@
+{
+  "name": "Invoice Approval Pipeline",
+  "nodes": [
+    {
+      "name": "Email Trigger",
+      "type": "n8n-nodes-base.imapEmail",
+      "parameters": {
+        "mailbox": "INBOX",
+        "filter": {
+          "subject": { "value": "invoice", "mode": "includes" }
+        }
+      }
+    },
+    {
+      "name": "Extract PDF",
+      "type": "n8n-nodes-base.extractFromFile",
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      }
+    },
+    {
+      "name": "Parse with LLM",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "headers": {
+          "x-api-key": "={{$env.ANTHROPIC_API_KEY}}",
+          "content-type": "application/json"
+        },
+        "body": {
+          "model": "={{$env.LLM_MODEL}}",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Extract invoice number, vendor, amount, due date, and line items from this invoice text. Return as JSON."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Determine Approver",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "functionCode": "\n          const amount = items[0].json.amount;\n          const vendor = items[0].json.vendor;\n          \n          let approver;\n          let channel;\n          \n          if (amount > 10000) {\n            approver = 'cfo@company.com';\n            channel = 'email';\n          } else if (amount > 2000) {\n            approver = 'controller@company.com';\n            channel = 'slack';\n          } else {\n            approver = 'ap-manager@company.com';\n            channel = 'telegram';\n          }\n          \n          return [{\n            json: {\n              ...items[0].json,\n              approver,\n              channel,\n              approval_url: `https://approve.trailwise.com/inv/${items[0].json.invoice_number}`,\n              deadline: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString()\n            }\n          }];\n        "
+      }
+    },
+    {
+      "name": "Send Approval Request",
+      "type": "n8n-nodes-base.switch",
+      "parameters": {
+        "dataType": "string",
+        "value1": "email",
+        "value2": "slack",
+        "value3": "telegram"
+      }
+    },
+    {
+      "name": "Wait for Response",
+      "type": "n8n-nodes-base.webhook",
+      "parameters": {
+        "path": "invoice-approval/:invoice_id",
+        "responseMode": "responseNode"
+      }
+    },
+    {
+      "name": "Process Approval",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "functionCode": "\n          const decision = items[0].json.decision;\n          const invoice = items[0].json;\n          \n          if (decision === 'approved') {\n            return [{ json: { ...invoice, action: 'post_to_quickbooks' } }];\n          } else {\n            return [{ json: { ...invoice, action: 'return_to_ap', reason: items[0].json.reason } }];\n          }\n        "
+      }
+    }
+  ]
+}

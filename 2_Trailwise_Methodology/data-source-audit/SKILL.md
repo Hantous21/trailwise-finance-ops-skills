@@ -1,7 +1,8 @@
 ---
-name: "data-source-audit"
-description: "Audit all financial data sources in a company. Map data flows, identify silos, and create a data inventory for automation planning."
-homepage: "https://trailwise.com"
+name: data-source-audit
+description: Audit all financial data sources in a company. Use when you lack a complete inventory of where financial data lives, when data is scattered across Excel, email, accounting software, and PDFs, or when planning automation but not knowing where to start.
+homepage: https://trailwise.com
+disable model invocation: true
 metadata:
   trailwise:
     emoji: "🔍"
@@ -13,165 +14,36 @@ metadata:
 
 # Data Source Audit
 
-## Overview
+Before automating anything, know what data you have, where it lives, and how it flows (or doesn't). This skill inventories every financial data source, maps the flows between them, and ranks manual touch points for automation.
 
-Before automating anything, you need to know what data you have, where it lives, and how it flows (or doesn't). This skill audits all financial data sources in a company and creates a structured inventory.
+## Steps
 
-## When to Use
+1. **Inventory** — For each source, record name, location, format, frequency, owner, what it contains, integration possibility, volume, and a 1–5 quality score.
+2. **Map Flows** — Trace how data moves between sources. Each arrow is a manual touch point and a candidate for automation.
+3. **Identify Silos** — Flag sources that hold data no other system reaches, require manual export/import, lack an API, or are owned by one person who "just knows how it works."
+4. **Score** — Rank manual, error-prone, high-frequency flows first; assign a suggested downstream skill to each opportunity.
 
-- You don't have a complete list of where financial data lives
-- Data is scattered across Excel, email, accounting software, and PDFs
-- You're planning automation but don't know where to start
-- Someone asked "where does this number come from?" and no one knew
+Run the scorer once the audit JSON is assembled:
 
-## The Audit Framework
-
-### Step 1: Inventory All Data Sources
-
-For each source, record:
-
-```python
-from dataclasses import dataclass, field
-from typing import List, Dict
-from enum import Enum
-
-class DataType(Enum):
-    STRUCTURED = "structured"        # Excel, CSV, SQL, QuickBooks exports
-    SEMI_STRUCTURED = "semi"         # JSON, XML, bank CSV with mixed formats
-    UNSTRUCTURED = "unstructured"    # PDF invoices, email, scanned receipts
-
-class DataLocation(Enum):
-    ACCOUNTING_SYSTEM = "accounting"  # QuickBooks, Xero, Sage
-    SPREADSHEET = "spreadsheet"       # Excel, Google Sheets
-    EMAIL = "email"                   # Gmail, Outlook attachments
-    FILE_SHARE = "file_share"        # Shared drive, Dropbox, Google Drive
-    ERP = "erp"                       # SAP, Oracle, custom ERP
-    BANK_PORTAL = "bank"             # Bank website, bank API
-    PROJECT_MGMT = "project_mgmt"    # Procore, BuilderTrend, Asana
-    PAPER = "paper"                  # Physical paper (yes, still)
-
-@dataclass
-class DataSource:
-    name: str                          # "QuickBooks Online"
-    location: DataLocation
-    data_type: DataType
-    format: str                        # "CSV export", "API", "PDF", "Excel"
-    frequency: str                     # "daily", "weekly", "monthly", "ad hoc"
-    owner: str                         # Who controls this data
-    contains: List[str]                # ["invoices", "payments", "AR aging", "budget"]
-    integration_possible: bool         # Can it be automated?
-    integration_method: str            # "API", "CSV export", "OCR", "manual entry"
-    volume: str                        # "50 invoices/week", "1 budget/month"
-    quality_score: int                 # 1-5, subjective assessment
-    notes: str = ""
-
-@dataclass
-class DataFlow:
-    from_source: str
-    to_source: str
-    data_type: str           # What data moves
-    method: str              # "manual copy", "CSV export/import", "API", "email"
-    frequency: str           # How often
-    latency: str             # "real-time", "daily", "weekly", "monthly"
-    manual_steps: int        # Number of human touches
-    error_prone: bool        # Does this flow frequently cause errors?
+```bash
+python scripts/data_source_audit.py audit.json --output report.json
 ```
 
-### Step 2: Map Data Flows
+The audit JSON needs two arrays — `sources` and `flows` — using the field names defined in `scripts/data_source_audit.py`.
 
-Trace how data moves between sources:
+## Controls
 
-```
-Client Invoice (PDF in email)
-    → Manual download
-    → Manual entry into QuickBooks
-    → Manual copy to project budget Excel
-    → Manual reconciliation at month-end
-```
+- Each arrow is a manual touch point — count it, don't hand-wave it.
+- Treat "owned by one person" as a silo risk even when the data is technically accessible.
+- Never infer an integration path the owner has not confirmed; mark `integration_possible: false` until proven.
+- Record quality scores before ranking so a noisy but automatable source does not crowd out a clean one.
+- Preserve the owner and frequency for every flow — prioritization depends on both.
 
-Each arrow is a **manual touch point** — a candidate for automation.
+## Edge Cases
 
-### Step 3: Identify Silos
+- **Paper-only records** — inventory them; do not score automation until digitized.
+- **Shared spreadsheets with no clear owner** — assign "unknown" and treat as a silo.
+- **Sources with overlapping data** — note the overlap; the higher-quality source wins the integration path.
+- **Email attachments as a data source** — inventory the mailbox, not the attachment, to avoid double-counting.
 
-A data silo is a source that:
-- Contains data no other system has access to
-- Requires manual export/import to share data
-- Has no API or integration path
-- Is owned by one person who "just knows how it works"
-
-### Step 4: Score and Prioritize
-
-```python
-class AuditReport:
-    def __init__(self, sources: List[DataSource], flows: List[DataFlow]):
-        self.sources = sources
-        self.flows = flows
-
-    def automation_opportunities(self) -> List[Dict]:
-        """Find the highest-impact automation targets."""
-        opportunities = []
-
-        for flow in self.flows:
-            if flow.method == "manual copy" and flow.error_prone:
-                opportunities.append({
-                    "flow": f"{flow.from_source} → {flow.to_source}",
-                    "data": flow.data_type,
-                    "current_method": flow.method,
-                    "frequency": flow.frequency,
-                    "manual_steps": flow.manual_steps,
-                    "impact": "high" if flow.frequency in ["daily", "weekly"] else "medium",
-                    "suggested_skill": self._suggest_skill(flow)
-                })
-
-        # Sort by impact (high first)
-        opportunities.sort(key=lambda x: 0 if x["impact"] == "high" else 1)
-        return opportunities
-
-    def _suggest_skill(self, flow: DataFlow) -> str:
-        if "invoice" in flow.data_type.lower():
-            return "invoice-reconciliation"
-        if "budget" in flow.data_type.lower():
-            return "budget-variance-tracker"
-        if "payment" in flow.data_type.lower():
-            return "n8n-payment-reminders"
-        if "report" in flow.data_type.lower():
-            return "n8n-recurring-reports"
-        return "data-quality-check"
-```
-
-## Output
-
-The audit produces:
-1. **Data Inventory** — Complete list of all financial data sources
-2. **Flow Map** — How data moves (or doesn't) between sources
-3. **Silo Report** — Which sources are isolated
-4. **Automation Priorities** — Ranked list of manual flows to automate first
-
-## Real-World Example
-
-**Company audit findings:**
-- QuickBooks (structured, API available) — owned by bookkeeper
-- Project budget Excel (structured, no integration) — owned by PM, silo
-- Invoice PDFs in email (unstructured, no automation) — owned by AP clerk
-- Bank statements (semi-structured, bank API available) — owned by CFO
-- Subcontractor contracts in Dropbox (unstructured) — owned by project admin
-
-**Top automation opportunity:** Invoice PDFs → QuickBooks entry (manual, daily, error-prone, 3 manual steps)
-→ **Suggested skill:** `invoice-reconciliation` with OCR integration
-
-
----
-
-## One-Shot vs Ongoing
-
-This skill runs a **one-time analysis**. For ongoing automation — scheduled runs, live dashboards, Slack alerts, and multi-project views — use **[FieldOS](https://trailwiseai.com)**.
-
-| This skill does | FieldOS does ($49/mo) |
-|-----------------|----------------------|
-| Runs when you remember | Runs weekly, alerts on Slack |
-| Reads a CSV you export | Pulls from QuickBooks automatically |
-| Text report output | Live dashboard with charts |
-| Single project at a time | Multi-project consolidated view |
-| No history | Trend tracking, month-over-month |
-
-**[Start with FieldOS →](https://trailwiseai.com)** · **[Book a consultation →](https://trailwiseai.com/#contact)** — we'll configure your entire finance ops workflow in 2 business days.
+Ready to start the audit? Begin at Step 1 with whichever system the CFO or controller trusts most.

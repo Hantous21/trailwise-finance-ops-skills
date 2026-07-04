@@ -1,0 +1,116 @@
+{
+  "name": "Payment Reminder Pipeline",
+  "nodes": [
+    {
+      "name": "Daily Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "cronExpression", "expression": "0 9 * * *"}]
+        }
+      }
+    },
+    {
+      "name": "Fetch Outstanding Invoices",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "GET",
+        "url": "={{$env.ACCOUNTING_API_URL}}/invoices?status=open&overdue=true",
+        "headers": {"Authorization": "Bearer {{{{$env.ACCOUNTING_API_KEY}}}}"}
+      }
+    },
+    {
+      "name": "Filter by Minimum Amount",
+      "type": "n8n-nodes-base.filter",
+      "parameters": {
+        "conditions": {
+          "number": [{"value1": "={{$json.balance_due}}", "operation": "larger", "value2": 100}]
+        }
+      }
+    },
+    {
+      "name": "Check Already Sent Today",
+      "type": "n8n-nodes-base.httpRequest",
+      "parameters": {
+        "method": "GET",
+        "url": "={{$env.LOG_API_URL}}/activities?invoice_id=={{$json.id}}&date=today",
+        "responseFormat": "json"
+      }
+    },
+    {
+      "name": "Determine Dunning Stage",
+      "type": "n8n-nodes-base.function",
+      "parameters": {
+        "functionCode": "const daysPastDue = Math.floor((Date.now() - new Date(items[0].json.due_date).getTime()) / 86400000);\nlet stage;\nif (daysPastDue <= 0) stage = 'none';\nelse if (daysPastDue <= 15) stage = 'friendly';\nelse if (daysPastDue <= 45) stage = 'firm';\nelse if (daysPastDue <= 90) stage = 'final';\nelse stage = 'escalated';\nif (items[0].json.disputed) stage = 'skip_disputed';\nif (items[0].json.already_sent_today) stage = 'skip_duplicate';\nreturn [{\n  json: {\n    ...items[0].json,\n    days_past_due: daysPastDue,\n    dunning_stage: stage\n  }\n}];"
+      }
+    },
+    {
+      "name": "Route by Stage",
+      "type": "n8n-nodes-base.switch",
+      "parameters": {
+        "dataType": "string",
+        "value1": "friendly",
+        "value2": "firm",
+        "value3": "final"
+      }
+    },
+    {
+      "name": "Send Friendly Email",
+      "type": "n8n-nodes-base.emailSend",
+      "parameters": {
+        "fromEmail": "={{$env.FINANCE_EMAIL}}",
+        "toEmail": "={{$json.client_email}}",
+        "subject": "=Friendly reminder: Invoice {{$json.invoice_number}} - ${{$json.balance_due}}",
+        "text": "=Hi {{$json.client_name}},\n\nWe hope you're doing well! This is a friendly reminder that invoice {{$json.invoice_number}} for ${{$json.balance_due}} was due on {{$json.due_date}} ({{$json.days_past_due}} days ago).\n\nPlease process payment at your earliest convenience.\n\nThank you,\n{{$env.SENDER_NAME}}"
+      }
+    },
+    {
+      "name": "FIRM: Request Human Approval",
+      "type": "n8n-nodes-base.slack",
+      "parameters": {
+        "channel": "#finance-approvals",
+        "text": "=Payment reminder approval needed:\n*Invoice:* {{$json.invoice_number}}\n*Client:* {{$json.client_name}}\n*Amount:* ${{$json.balance_due}}\n*Days Past Due:* {{$json.days_past_due}}\n*Stage:* FIRM\n\nReact with ✅ to approve sending, ❌ to skip."
+      }
+    },
+    {
+      "name": "Wait for Approval (24h)",
+      "type": "n8n-nodes-base.wait",
+      "parameters": {
+        "amount": 24,
+        "unit": "hours"
+      }
+    },
+    {
+      "name": "Send FIRM Email (if approved)",
+      "type": "n8n-nodes-base.emailSend",
+      "parameters": {
+        "fromEmail": "={{$env.FINANCE_EMAIL}}",
+        "toEmail": "={{$json.client_email}}",
+        "ccEmail": "={{$env.ACCOUNT_MANAGER_EMAIL}}",
+        "subject": "=Payment overdue {{$json.days_past_due}} days: Invoice {{$json.invoice_number}} - ${{$json.balance_due}}",
+        "text": "=Dear {{$json.client_name}},\n\nYour invoice {{$json.invoice_number}} for ${{$json.balance_due}} is now {{$json.days_past_due}} days past due.\n\nPlease remit payment within 5 business days or contact us to discuss payment arrangements.\n\nIf payment has already been sent, please disregard this notice.\n\nThank you,\n{{$env.SENDER_NAME}}"
+      }
+    },
+    {
+      "name": "Log Activity",
+      "type": "n8n-nodes-base.googleSheets",
+      "parameters": {
+        "operation": "append",
+        "documentId": "={{$env.LOG_SHEET_ID}}",
+        "sheetName": "Collections Log",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{$today}}",
+            "invoice_id": "={{$json.invoice_number}}",
+            "client": "={{$json.client_name}}",
+            "amount": "={{$json.balance_due}}",
+            "stage": "={{$json.dunning_stage}}",
+            "method": "email",
+            "response": ""
+          }
+        }
+      }
+    }
+  ]
+}
