@@ -4,16 +4,20 @@
     {
       "name": "Email Trigger",
       "type": "n8n-nodes-base.imapEmail",
+      "typeVersion": 1,
+      "position": [200, 300],
       "parameters": {
         "mailbox": "INBOX",
         "filter": {
-          "subject": { "value": "invoice", "mode": "includes" }
+          "subject": {"value": "invoice", "mode": "includes"}
         }
       }
     },
     {
       "name": "Extract PDF",
       "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [420, 300],
       "parameters": {
         "operation": "pdf",
         "options": {}
@@ -22,6 +26,8 @@
     {
       "name": "Parse with LLM",
       "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [640, 300],
       "parameters": {
         "method": "POST",
         "url": "https://api.anthropic.com/v1/messages",
@@ -43,13 +49,17 @@
     {
       "name": "Determine Approver",
       "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [860, 300],
       "parameters": {
-        "functionCode": "\n          const amount = items[0].json.amount;\n          const vendor = items[0].json.vendor;\n          \n          let approver;\n          let channel;\n          \n          if (amount > 10000) {\n            approver = 'cfo@company.com';\n            channel = 'email';\n          } else if (amount > 2000) {\n            approver = 'controller@company.com';\n            channel = 'slack';\n          } else {\n            approver = 'ap-manager@company.com';\n            channel = 'telegram';\n          }\n          \n          return [{\n            json: {\n              ...items[0].json,\n              approver,\n              channel,\n              approval_url: `https://approve.trailwise.com/inv/${items[0].json.invoice_number}`,\n              deadline: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString()\n            }\n          }];\n        "
+        "functionCode": "const amount = items[0].json.amount;\nconst vendor = items[0].json.vendor;\n\nlet approver;\nlet channel;\n\nif (amount > 10000) {\n  approver = 'cfo@company.com';\n  channel = 'email';\n} else if (amount > 2000) {\n  approver = 'controller@company.com';\n  channel = 'slack';\n} else {\n  approver = 'ap-manager@company.com';\n  channel = 'telegram';\n}\n\nreturn [{\n  json: {\n    ...items[0].json,\n    approver,\n    channel,\n    approval_url: `https://approve.trailwise.com/inv/${items[0].json.invoice_number}`,\n    deadline: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString()\n  }\n}];"
       }
     },
     {
       "name": "Send Approval Request",
       "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [1080, 300],
       "parameters": {
         "dataType": "string",
         "value1": "email",
@@ -58,8 +68,42 @@
       }
     },
     {
+      "name": "Send Approval Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1340, 180],
+      "parameters": {
+        "fromEmail": "={{$env.FINANCE_EMAIL}}",
+        "toEmail": "={{$json.approver}}",
+        "subject": "=Invoice Approval Required: {{$json.invoice_number}} - ${{$json.amount}}",
+        "text": "=An invoice requires your approval:\n\nVendor: {{$json.vendor}}\nAmount: ${{$json.amount}}\nDue Date: {{$json.due_date}}\n\nApprove: {{$json.approval_url}}/approve\nReject: {{$json.approval_url}}/reject\n\nDeadline: {{$json.deadline}}"
+      }
+    },
+    {
+      "name": "Send Approval Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [1340, 340],
+      "parameters": {
+        "channel": "#invoice-approvals",
+        "text": "=Invoice approval required:\n*Vendor:* {{$json.vendor}}\n*Amount:* ${{$json.amount}}\n*Approve:* {{$json.approval_url}}/approve\n*Reject:* {{$json.approval_url}}/reject\n*Deadline:* {{$json.deadline}}"
+      }
+    },
+    {
+      "name": "Send Approval Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1340, 500],
+      "parameters": {
+        "chatId": "={{$json.approver}}",
+        "text": "=Invoice approval required:\nVendor: {{$json.vendor}}\nAmount: ${{$json.amount}}\nApprove: {{$json.approval_url}}/approve\nReject: {{$json.approval_url}}/reject"
+      }
+    },
+    {
       "name": "Wait for Response",
       "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [1560, 300],
       "parameters": {
         "path": "invoice-approval/:invoice_id",
         "responseMode": "responseNode"
@@ -68,9 +112,35 @@
     {
       "name": "Process Approval",
       "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [1780, 300],
       "parameters": {
-        "functionCode": "\n          const decision = items[0].json.decision;\n          const invoice = items[0].json;\n          \n          if (decision === 'approved') {\n            return [{ json: { ...invoice, action: 'post_to_quickbooks' } }];\n          } else {\n            return [{ json: { ...invoice, action: 'return_to_ap', reason: items[0].json.reason } }];\n          }\n        "
+        "functionCode": "const decision = items[0].json.decision;\nconst invoice = items[0].json;\n\nif (decision === 'approved') {\n  return [{ json: { ...invoice, action: 'post_to_quickbooks' } }];\n} else {\n  return [{ json: { ...invoice, action: 'return_to_ap', reason: items[0].json.reason } }];\n}"
       }
     }
-  ]
+  ],
+  "connections": {
+    "Email Trigger": {
+      "main": [[{"node": "Extract PDF", "type": "main", "index": 0}]]
+    },
+    "Extract PDF": {
+      "main": [[{"node": "Parse with LLM", "type": "main", "index": 0}]]
+    },
+    "Parse with LLM": {
+      "main": [[{"node": "Determine Approver", "type": "main", "index": 0}]]
+    },
+    "Determine Approver": {
+      "main": [[{"node": "Send Approval Request", "type": "main", "index": 0}]]
+    },
+    "Send Approval Request": {
+      "main": [
+        [{"node": "Send Approval Email", "type": "main", "index": 0}],
+        [{"node": "Send Approval Slack", "type": "main", "index": 0}],
+        [{"node": "Send Approval Telegram", "type": "main", "index": 0}]
+      ]
+    },
+    "Wait for Response": {
+      "main": [[{"node": "Process Approval", "type": "main", "index": 0}]]
+    }
+  }
 }
