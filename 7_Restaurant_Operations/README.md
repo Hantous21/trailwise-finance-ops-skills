@@ -1,6 +1,6 @@
 # Tier 7: Restaurant Operations
 
-Restaurant finance ops — daily controls first. Restaurant cash leaks the same day it happens; reconcile POS to bank deposits before you reconcile anything else, name a person per drawer, and tie out card-processor fees against the statement every week.
+Restaurant finance ops — daily controls first. Cash leaks the same day it happens; reconcile POS to bank deposits before you reconcile anything else, name a person per drawer, and tie out card-processor fees against the statement every week.
 
 | Status | Skill | Description |
 |---|---|---|
