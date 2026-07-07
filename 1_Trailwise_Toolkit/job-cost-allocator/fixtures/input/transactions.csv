@@ -1,0 +1,9 @@
+txn_id,date,vendor,description,amount,account
+T1,2026-06-02,Ferguson Enterprises,PVC and fittings,2450.00,COGS
+T2,2026-06-03,SUNBELT RENTALS,scissor lift week 1,1800.00,COGS
+T3,2026-06-05,ABC Steel,rebar #5 delivery,4200.00,COGS
+T4,2026-06-06,Kwik Trip,fleet fuel,180.00,Auto
+T5,2026-06-09,Ferguson,rebar chairs,320.00,COGS
+T6,2026-06-10,Home Depot,misc supplies,260.00,COGS
+T7,2026-06-11,Delta Electric,progress billing 2,1500.00,COGS
+T8,2026-06-12,Sunbelt Rentals,scissor lift fuel surcharge,950.00,COGS

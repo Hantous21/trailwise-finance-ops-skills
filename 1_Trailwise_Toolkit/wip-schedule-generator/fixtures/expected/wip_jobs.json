@@ -1,0 +1,92 @@
+{
+  "jobs": [
+    {
+      "job_number": "J-101",
+      "job_name": "Maple Office TI",
+      "contract_amount": 500000.0,
+      "approved_change_orders": 25000.0,
+      "revised_contract": 525000.0,
+      "estimated_total_cost": 420000.0,
+      "cost_to_date": 210000.0,
+      "billed_to_date": 300000.0,
+      "raw_percent_complete": 0.5,
+      "percent_complete": 0.5,
+      "earned_revenue": 262500.0,
+      "over_under": 37500.0,
+      "estimated_gross_profit": 105000.0,
+      "gross_profit_pct": 20.0,
+      "remaining_to_bill": 225000.0,
+      "flags": []
+    },
+    {
+      "job_number": "J-102",
+      "job_name": "Riverside Retail",
+      "contract_amount": 300000.0,
+      "approved_change_orders": 0.0,
+      "revised_contract": 300000.0,
+      "estimated_total_cost": 260000.0,
+      "cost_to_date": 195000.0,
+      "billed_to_date": 150000.0,
+      "raw_percent_complete": 0.75,
+      "percent_complete": 0.75,
+      "earned_revenue": 225000.0,
+      "over_under": -75000.0,
+      "estimated_gross_profit": 40000.0,
+      "gross_profit_pct": 13.33,
+      "remaining_to_bill": 150000.0,
+      "flags": [
+        "underbilled_above_threshold"
+      ]
+    },
+    {
+      "job_number": "J-103",
+      "job_name": "Hwy 7 Culvert",
+      "contract_amount": 800000.0,
+      "approved_change_orders": 40000.0,
+      "revised_contract": 840000.0,
+      "estimated_total_cost": 900000.0,
+      "cost_to_date": 450000.0,
+      "billed_to_date": 400000.0,
+      "raw_percent_complete": 0.5,
+      "percent_complete": 0.5,
+      "earned_revenue": 420000.0,
+      "over_under": -20000.0,
+      "estimated_gross_profit": -60000.0,
+      "gross_profit_pct": -7.14,
+      "remaining_to_bill": 440000.0,
+      "flags": [
+        "cost_overrun"
+      ]
+    },
+    {
+      "job_number": "J-104",
+      "job_name": "Elm Duplex",
+      "contract_amount": 150000.0,
+      "approved_change_orders": 0.0,
+      "revised_contract": 150000.0,
+      "estimated_total_cost": 120000.0,
+      "cost_to_date": 126000.0,
+      "billed_to_date": 155000.0,
+      "raw_percent_complete": 1.05,
+      "percent_complete": 1.0,
+      "earned_revenue": 150000.0,
+      "over_under": 5000.0,
+      "estimated_gross_profit": 30000.0,
+      "gross_profit_pct": 20.0,
+      "remaining_to_bill": -5000.0,
+      "flags": [
+        "percent_complete_over_100",
+        "billed_over_contract"
+      ]
+    }
+  ],
+  "summary": {
+    "job_count": 4,
+    "jobs_flagged": 3,
+    "total_overbilled": 42500.0,
+    "total_underbilled": 95000.0,
+    "total_earned": 1057500.0,
+    "total_billed": 1005000.0,
+    "as_of": "2026-07-07"
+  }
+}

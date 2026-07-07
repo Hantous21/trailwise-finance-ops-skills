@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-18-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Skills-23-blue?style=flat-square" alt="Skills">
   <img src="https://img.shields.io/badge/Categories-6-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
@@ -53,6 +53,11 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 | `schedule-delay-analyzer` | CPM critical path analysis, delay simulation, float calculation | `6_Contractor_Operations/` |
 | `submittal-tracker` | Track submittals, calculate required dates, flag late items | `6_Contractor_Operations/` |
 | `data-quality-check` | Validate CSV data against schema, flag duplicates/blanks/invalid types | `2_Trailwise_Methodology/` |
+| `wip-schedule-generator` | Cost-to-cost WIP schedule with over/under billing flags | `1_Trailwise_Toolkit/` |
+| `retainage-tracker` | Track retainage receivable, rate changes, and overdue releases | `1_Trailwise_Toolkit/` |
+| `job-cost-allocator` | Rule-based allocation of transactions to jobs and cost codes | `1_Trailwise_Toolkit/` |
+| `lien-waiver-tracker` | Track lien waiver collection, exposure, and draw blockers | `6_Contractor_Operations/` |
+| `certified-payroll-report` | WH-347-style weekly certified payroll with Davis-Bacon check | `6_Contractor_Operations/` |
 
 ---
 

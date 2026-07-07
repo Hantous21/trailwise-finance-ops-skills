@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lien Waiver Tracker"
+  short_description: "Track waiver collection and draw-funding exposure"
+  default_prompt: "Use $lien-waiver-tracker to find missing waivers and draw blockers."

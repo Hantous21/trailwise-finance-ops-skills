@@ -1,0 +1,84 @@
+{
+  "project_count": 2,
+  "total_exposure": 60000.0,
+  "critical_reason_count": 2,
+  "projects": [
+    {
+      "project": "Maple Office TI",
+      "exposure": 60000.0,
+      "next_draw_blockers": [
+        {
+          "subcontractor": "Delta Electric",
+          "draw_number": 1
+        }
+      ],
+      "rows": [
+        {
+          "subcontractor": "Apex Plumbing",
+          "draw_number": 1,
+          "payment_amount": 45000.0,
+          "payment_date": "2026-05-10",
+          "payment_cleared": "Y",
+          "waiver_type": "conditional_progress",
+          "waiver_received": "Y",
+          "waiver_date": "2026-05-10",
+          "flags": [],
+          "risks": []
+        },
+        {
+          "subcontractor": "Delta Electric",
+          "draw_number": 1,
+          "payment_amount": 60000.0,
+          "payment_date": "2026-05-10",
+          "payment_cleared": "Y",
+          "waiver_type": "conditional_progress",
+          "waiver_received": "N",
+          "waiver_date": null,
+          "flags": [
+            "missing_waiver"
+          ],
+          "risks": [
+            "high"
+          ]
+        },
+        {
+          "subcontractor": "Apex Plumbing",
+          "draw_number": 2,
+          "payment_amount": 30000.0,
+          "payment_date": "2026-06-10",
+          "payment_cleared": "N",
+          "waiver_type": "unconditional_progress",
+          "waiver_received": "Y",
+          "waiver_date": "2026-06-08",
+          "flags": [
+            "unconditional_before_cleared",
+            "waiver_predates_payment"
+          ],
+          "risks": [
+            "critical",
+            "critical"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "Riverside Retail",
+      "exposure": 0.0,
+      "next_draw_blockers": [],
+      "rows": [
+        {
+          "subcontractor": "Summit Concrete",
+          "draw_number": 5,
+          "payment_amount": 25000.0,
+          "payment_date": "2026-06-20",
+          "payment_cleared": "Y",
+          "waiver_type": "conditional_final",
+          "waiver_received": "Y",
+          "waiver_date": "2026-06-20",
+          "flags": [],
+          "risks": []
+        }
+      ]
+    }
+  ]
+}

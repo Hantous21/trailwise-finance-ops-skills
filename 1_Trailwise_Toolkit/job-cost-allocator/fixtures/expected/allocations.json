@@ -1,0 +1,136 @@
+{
+  "transaction_count": 8,
+  "allocated_count": 6,
+  "unallocated_count": 2,
+  "allocated_pct": 75.0,
+  "by_job": {
+    "J-101": 5520.0,
+    "J-103": 4200.0,
+    "OVERHEAD": 180.0
+  },
+  "review_queue": [
+    {
+      "txn_id": "T6",
+      "date": "2026-06-10",
+      "vendor": "Home Depot",
+      "description": "misc supplies",
+      "amount": 260.0,
+      "account": "COGS",
+      "job_number": null,
+      "cost_code": null,
+      "rule_priority": null,
+      "status": "unallocated"
+    },
+    {
+      "txn_id": "T7",
+      "date": "2026-06-11",
+      "vendor": "Delta Electric",
+      "description": "progress billing 2",
+      "amount": 1500.0,
+      "account": "COGS",
+      "job_number": null,
+      "cost_code": null,
+      "rule_priority": null,
+      "status": "unallocated"
+    }
+  ],
+  "review_queue_total": 1760.0,
+  "rows": [
+    {
+      "txn_id": "T1",
+      "date": "2026-06-02",
+      "vendor": "Ferguson Enterprises",
+      "description": "PVC and fittings",
+      "amount": 2450.0,
+      "account": "COGS",
+      "job_number": "J-101",
+      "cost_code": "22-100",
+      "rule_priority": 1,
+      "status": "allocated"
+    },
+    {
+      "txn_id": "T2",
+      "date": "2026-06-03",
+      "vendor": "SUNBELT RENTALS",
+      "description": "scissor lift week 1",
+      "amount": 1800.0,
+      "account": "COGS",
+      "job_number": "J-101",
+      "cost_code": "01-500",
+      "rule_priority": 2,
+      "status": "allocated"
+    },
+    {
+      "txn_id": "T3",
+      "date": "2026-06-05",
+      "vendor": "ABC Steel",
+      "description": "rebar #5 delivery",
+      "amount": 4200.0,
+      "account": "COGS",
+      "job_number": "J-103",
+      "cost_code": "03-200",
+      "rule_priority": 3,
+      "status": "allocated"
+    },
+    {
+      "txn_id": "T4",
+      "date": "2026-06-06",
+      "vendor": "Kwik Trip",
+      "description": "fleet fuel",
+      "amount": 180.0,
+      "account": "Auto",
+      "job_number": "OVERHEAD",
+      "cost_code": "00-300",
+      "rule_priority": 4,
+      "status": "allocated"
+    },
+    {
+      "txn_id": "T5",
+      "date": "2026-06-09",
+      "vendor": "Ferguson",
+      "description": "rebar chairs",
+      "amount": 320.0,
+      "account": "COGS",
+      "job_number": "J-101",
+      "cost_code": "22-100",
+      "rule_priority": 1,
+      "status": "allocated"
+    },
+    {
+      "txn_id": "T6",
+      "date": "2026-06-10",
+      "vendor": "Home Depot",
+      "description": "misc supplies",
+      "amount": 260.0,
+      "account": "COGS",
+      "job_number": null,
+      "cost_code": null,
+      "rule_priority": null,
+      "status": "unallocated"
+    },
+    {
+      "txn_id": "T7",
+      "date": "2026-06-11",
+      "vendor": "Delta Electric",
+      "description": "progress billing 2",
+      "amount": 1500.0,
+      "account": "COGS",
+      "job_number": null,
+      "cost_code": null,
+      "rule_priority": null,
+      "status": "unallocated"
+    },
+    {
+      "txn_id": "T8",
+      "date": "2026-06-12",
+      "vendor": "Sunbelt Rentals",
+      "description": "scissor lift fuel surcharge",
+      "amount": 950.0,
+      "account": "COGS",
+      "job_number": "J-101",
+      "cost_code": "01-500",
+      "rule_priority": 2,
+      "status": "allocated"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "as_of": "2026-07-01",
+  "project_count": 3,
+  "total_outstanding_receivable": 26500.0,
+  "projects": [
+    {
+      "project": "Maple Office TI",
+      "draw_count": 3,
+      "total_withheld": 24000.0,
+      "total_released": 0.0,
+      "outstanding": 24000.0,
+      "substantial_completion_date": "2026-05-01",
+      "days_since_completion": 61,
+      "flags": [
+        "release_overdue"
+      ],
+      "draws": [
+        {
+          "draw_number": 1,
+          "invoice_date": "2026-03-01",
+          "gross_billed": 100000.0,
+          "retainage_pct": 10.0,
+          "expected_withheld": 10000.0,
+          "retainage_withheld": 10000.0,
+          "retainage_released": 0.0
+        },
+        {
+          "draw_number": 2,
+          "invoice_date": "2026-04-01",
+          "gross_billed": 80000.0,
+          "retainage_pct": 10.0,
+          "expected_withheld": 8000.0,
+          "retainage_withheld": 8000.0,
+          "retainage_released": 0.0
+        },
+        {
+          "draw_number": 3,
+          "invoice_date": "2026-05-01",
+          "gross_billed": 60000.0,
+          "retainage_pct": 10.0,
+          "expected_withheld": 6000.0,
+          "retainage_withheld": 6000.0,
+          "retainage_released": 0.0
+        }
+      ]
+    },
+    {
+      "project": "Riverside Retail",
+      "draw_count": 2,
+      "total_withheld": 7500.0,
+      "total_released": 5000.0,
+      "outstanding": 2500.0,
+      "substantial_completion_date": null,
+      "days_since_completion": null,
+      "flags": [
+        "retainage_rate_change"
+      ],
+      "draws": [
+        {
+          "draw_number": 1,
+          "invoice_date": "2026-05-15",
+          "gross_billed": 50000.0,
+          "retainage_pct": 10.0,
+          "expected_withheld": 5000.0,
+          "retainage_withheld": 5000.0,
+          "retainage_released": 0.0
+        },
+        {
+          "draw_number": 2,
+          "invoice_date": "2026-06-15",
+          "gross_billed": 50000.0,
+          "retainage_pct": 5.0,
+          "expected_withheld": 2500.0,
+          "retainage_withheld": 2500.0,
+          "retainage_released": 5000.0
+        }
+      ]
+    },
+    {
+      "project": "Hwy 7 Culvert",
+      "draw_count": 1,
+      "total_withheld": 5000.0,
+      "total_released": 5000.0,
+      "outstanding": 0.0,
+      "substantial_completion_date": "2026-03-15",
+      "days_since_completion": null,
+      "flags": [],
+      "draws": [
+        {
+          "draw_number": 1,
+          "invoice_date": "2026-02-01",
+          "gross_billed": 50000.0,
+          "retainage_pct": 10.0,
+          "expected_withheld": 5000.0,
+          "retainage_withheld": 5000.0,
+          "retainage_released": 5000.0
+        }
+      ]
+    }
+  ]
+}
