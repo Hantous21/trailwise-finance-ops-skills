@@ -1,0 +1,4 @@
+employee,classification,project,week_ending,hours_mon,hours_tue,hours_wed,hours_thu,hours_fri,hours_sat,hours_sun,base_rate,fringe_rate
+Alice Moreno,laborer,Hwy 7 Culvert,2026-06-27,8,8,8,8,8,6,0,28.00,6.00
+Ben Carter,electrician,Hwy 7 Culvert,2026-06-27,8,8,8,8,8,0,0,30.00,4.00
+Chris Doyle,pipefitter,Hwy 7 Culvert,2026-06-27,8,8,8,8,8,0,0,35.00,5.00

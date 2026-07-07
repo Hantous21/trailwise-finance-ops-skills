@@ -1,0 +1,4 @@
+interface:
+  display_name: "Certified Payroll Report"
+  short_description: "WH-347 rows plus Davis-Bacon compliance check"
+  default_prompt: "Use $certified-payroll-report to build weekly certified payroll and flag underpayment."

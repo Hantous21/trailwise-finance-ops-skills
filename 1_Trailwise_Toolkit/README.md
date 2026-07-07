@@ -16,6 +16,9 @@ Production-ready finance ops tools. These are the skills you run when you need a
 | `ar-aging-report` | Accounts receivable aging with auto-categorization |
 | `ap-aging-report` | Accounts payable aging with payment scheduling |
 | `payment-app-generator` | Generate AIA-style payment applications |
+| `wip-schedule-generator` | Cost-to-cost WIP schedule with over/under billing flags |
+| `retainage-tracker` | Track retainage receivable, rate changes, and overdue releases |
+| `job-cost-allocator` | Rule-based allocation of transactions to jobs and cost codes |
 | `retention-tracker` | Track retainage/retention across projects |
 | `change-order-cost-impact` | Calculate cost impact of change orders |
 | `expense-categorizer` | Auto-categorize expenses by cost code |

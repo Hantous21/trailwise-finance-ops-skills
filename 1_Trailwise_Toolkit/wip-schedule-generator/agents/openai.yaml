@@ -1,0 +1,4 @@
+interface:
+  display_name: "WIP Schedule Generator"
+  short_description: "Over/under billing WIP schedule"
+  default_prompt: "Use $wip-schedule-generator to build the WIP schedule and flag under-billings."

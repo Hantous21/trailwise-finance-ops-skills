@@ -1,0 +1,5 @@
+priority,match_field,pattern,job_number,cost_code
+1,vendor,ferguson,J-101,22-100
+2,vendor,sunbelt,J-101,01-500
+3,description,rebar,J-103,03-200
+4,description,fuel,OVERHEAD,00-300

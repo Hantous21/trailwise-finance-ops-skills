@@ -1,0 +1,4 @@
+interface:
+  display_name: "Retainage Tracker"
+  short_description: "Retainage receivable and release milestones"
+  default_prompt: "Use $retainage-tracker to total outstanding retainage and flag overdue releases."

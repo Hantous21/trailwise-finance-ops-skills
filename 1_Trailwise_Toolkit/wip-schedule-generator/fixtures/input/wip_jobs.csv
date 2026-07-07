@@ -1,0 +1,5 @@
+job_number,job_name,contract_amount,approved_change_orders,estimated_total_cost,cost_to_date,billed_to_date
+J-101,Maple Office TI,500000,25000,420000,210000,300000
+J-102,Riverside Retail,300000,0,260000,195000,150000
+J-103,Hwy 7 Culvert,800000,40000,900000,450000,400000
+J-104,Elm Duplex,150000,0,120000,126000,155000

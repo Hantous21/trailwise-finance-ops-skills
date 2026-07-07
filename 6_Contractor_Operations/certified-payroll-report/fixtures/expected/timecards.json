@@ -1,0 +1,81 @@
+{
+  "row_count": 3,
+  "total_gross": 4608.0,
+  "exception_count": 2,
+  "rows": [
+    {
+      "employee": "Alice Moreno",
+      "classification": "laborer",
+      "project": "Hwy 7 Culvert",
+      "week_ending": "2026-06-27",
+      "hours_mon": 8,
+      "hours_tue": 8,
+      "hours_wed": 8,
+      "hours_thu": 8,
+      "hours_fri": 8,
+      "hours_sat": 6,
+      "hours_sun": 0,
+      "total_hours": 46,
+      "ot_hours": 6,
+      "st_hours": 40,
+      "base_rate": 28.0,
+      "fringe_rate": 6.0,
+      "gross": 1648.0,
+      "flags": [],
+      "risks": [],
+      "restitution": 0.0
+    },
+    {
+      "employee": "Ben Carter",
+      "classification": "electrician",
+      "project": "Hwy 7 Culvert",
+      "week_ending": "2026-06-27",
+      "hours_mon": 8,
+      "hours_tue": 8,
+      "hours_wed": 8,
+      "hours_thu": 8,
+      "hours_fri": 8,
+      "hours_sat": 0,
+      "hours_sun": 0,
+      "total_hours": 40,
+      "ot_hours": 0,
+      "st_hours": 40,
+      "base_rate": 30.0,
+      "fringe_rate": 4.0,
+      "gross": 1360.0,
+      "flags": [
+        "underpaid"
+      ],
+      "risks": [
+        "high"
+      ],
+      "restitution": 160.0
+    },
+    {
+      "employee": "Chris Doyle",
+      "classification": "pipefitter",
+      "project": "Hwy 7 Culvert",
+      "week_ending": "2026-06-27",
+      "hours_mon": 8,
+      "hours_tue": 8,
+      "hours_wed": 8,
+      "hours_thu": 8,
+      "hours_fri": 8,
+      "hours_sat": 0,
+      "hours_sun": 0,
+      "total_hours": 40,
+      "ot_hours": 0,
+      "st_hours": 40,
+      "base_rate": 35.0,
+      "fringe_rate": 5.0,
+      "gross": 1600.0,
+      "flags": [
+        "unknown_classification"
+      ],
+      "risks": [
+        "review"
+      ],
+      "restitution": 0.0
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+project,subcontractor,draw_number,payment_amount,payment_date,payment_cleared,waiver_type,waiver_received,waiver_date
+Maple Office TI,Apex Plumbing,1,45000,2026-05-10,Y,conditional_progress,Y,2026-05-10
+Maple Office TI,Delta Electric,1,60000,2026-05-10,Y,conditional_progress,N,
+Maple Office TI,Apex Plumbing,2,30000,2026-06-10,N,unconditional_progress,Y,2026-06-08
+Riverside Retail,Summit Concrete,5,25000,2026-06-20,Y,conditional_final,Y,2026-06-20

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Job Cost Allocator"
+  short_description: "Rule-based cost coding to jobs"
+  default_prompt: "Use $job-cost-allocator to code transactions to jobs and queue unmatched for review."
