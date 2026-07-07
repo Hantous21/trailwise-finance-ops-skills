@@ -38,6 +38,7 @@ def _load_module():
     spec = importlib.util.spec_from_file_location("payment_app_under_test", str(SCRIPT_PATH))
     assert spec is not None and spec.loader is not None, f"Could not load spec for {SCRIPT_PATH}"
     module = importlib.util.module_from_spec(spec)
+    sys.modules["payment_app_under_test"] = module
     spec.loader.exec_module(module)
     return module
 

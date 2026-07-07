@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Sales Reconciliation"
+  short_description: "POS-to-bank daily tie-out"
+  default_prompt: "Use $daily-sales-reconciliation to tie POS sales to bank deposits."

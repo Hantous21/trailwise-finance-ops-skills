@@ -1,0 +1,4 @@
+interface:
+  display_name: "AR Aging Excel"
+  short_description: "AR aging workbook with chart"
+  default_prompt: "Use $ar-aging-excel to build the AR aging workbook."
