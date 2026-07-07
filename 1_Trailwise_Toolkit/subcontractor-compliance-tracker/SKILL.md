@@ -1,8 +1,8 @@
 ---
 name: "subcontractor-compliance-tracker"
 description: "Track subcontractor insurance, licenses, and lien waivers. Auto-remind subs before expiration, flag non-compliant vendors, replace the 'master spreadsheet' with a dashboard."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "📋"

@@ -1,7 +1,7 @@
 ---
 name: "cash-flow-forecaster"
 description: "Forecast project and company cash flow. Generate S-curves, predict shortfalls, and model payment timing scenarios."
-homepage: "https://trailwise.com"
+homepage: "https://trailwiseai.com"
 metadata:
   trailwise:
     emoji: "💰"
@@ -10,7 +10,7 @@ metadata:
     requires:
       bins: ["python3"]
     optional_deps: ["pandas", "matplotlib"]
-disable model invocation: true
+disable-model-invocation: true
 ---
 
 # Cash Flow Forecaster

@@ -1,8 +1,8 @@
 ---
 name: "month-end-close"
 description: "Build dependency-aware month-end close checklists, enforce sign-off order, calculate account-aware variances, and update bounded roll-forwards. Use when replacing recurring close spreadsheets or implementing reviewed accounting-close controls."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "📅"

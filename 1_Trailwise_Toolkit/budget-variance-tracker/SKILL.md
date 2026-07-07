@@ -1,8 +1,8 @@
 ---
 name: "budget-variance-tracker"
 description: "Track budget vs actual costs in real-time. Flag overruns, forecast final costs via burn-rate projection, and trigger alerts when thresholds are breached."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "📊"

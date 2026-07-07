@@ -1,8 +1,8 @@
 ---
 name: "bank-reconciliation"
 description: "Use when matching bank statement transactions to ledger entries, flagging unmatched items, suggesting journal entries for discrepancies, or generating reconciliation reports."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "🏦"

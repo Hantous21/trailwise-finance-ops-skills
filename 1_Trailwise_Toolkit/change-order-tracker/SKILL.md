@@ -2,7 +2,7 @@
 name: "change-order-tracker"
 description: "Classify, cost, and track construction change orders. Calculate cumulative impact on the contract sum, flag severity, and generate dispute documentation packets."
 homepage: "https://trailwiseai.com"
-disable model invocation: true
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "📝"

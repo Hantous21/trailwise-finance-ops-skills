@@ -1,8 +1,8 @@
 ---
 name: "n8n-invoice-approval"
 description: "Automate invoice approval routing using n8n. Route invoices to the right approver based on amount, vendor, and project. Send via email/Slack/Telegram, track status, and auto-post to accounting on approval."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "⚡"
@@ -59,7 +59,7 @@ to AP with reason codes. The full n8n workflow definition lives in
 |---------------------|-------------------------------------|-------------------------------|
 | `ANTHROPIC_API_KEY` | Parse with LLM node (header)        | `sk-ant-…`                    |
 | `LLM_MODEL`         | Parse with LLM node (model field)   | `claude-sonnet-4-20250514`    |
-| `APPROVAL_BASE_URL` | Determine Approver node (approval_url) | `https://approve.trailwise.com` |
+| `APPROVAL_BASE_URL` | Determine Approver node (approval_url) | `https://approve.trailwiseai.com` |
 | `QUICKBOOKS_*`      | Post-approval QuickBooks integration | —                             |
 
 → Import `workflows/invoice_approval.json` into n8n, set the env vars above, and activate the workflow.

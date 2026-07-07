@@ -1,8 +1,8 @@
 ---
 name: "ar-collections-automation"
 description: "Automate accounts receivable collections. Generate aging reports, send tiered dunning emails, predict late payments, and track collections activity."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "📮"

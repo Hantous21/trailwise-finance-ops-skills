@@ -1,8 +1,8 @@
 ---
 name: "payment-app-generator"
 description: "Generate AIA G702/G703 payment applications from project data. Calculate completed work, retainage, and current amount due. Export to structured format for PDF generation."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "🏗️"

@@ -1,8 +1,8 @@
 ---
 name: "n8n-payment-reminders"
 description: "Automated payment reminder pipeline for outstanding invoices. Tiered dunning (friendly → firm → final) via email and Slack approval routing. Deployment layer for ar-collections-automation."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "⏰"

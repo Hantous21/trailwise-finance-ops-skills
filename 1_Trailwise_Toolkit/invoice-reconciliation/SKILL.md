@@ -1,8 +1,8 @@
 ---
 name: "invoice-reconciliation"
 description: "Use when matching vendor invoices to purchase orders and goods receipts — flag price/quantity variances, unmatched invoices, and route approvals within tolerance."
-homepage: "https://trailwise.com"
-disable model invocation: true
+homepage: "https://trailwiseai.com"
+disable-model-invocation: true
 metadata:
   trailwise:
     emoji: "🧾"
