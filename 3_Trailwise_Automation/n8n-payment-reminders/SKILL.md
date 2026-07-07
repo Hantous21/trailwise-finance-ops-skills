@@ -1,17 +1,6 @@
 ---
-name: "n8n-payment-reminders"
-description: "Automated payment reminder pipeline for outstanding invoices. Tiered dunning (friendly → firm → final) via email and Slack approval routing. Deployment layer for ar-collections-automation."
-homepage: "https://trailwiseai.com"
-disable-model-invocation: true
-metadata:
-  trailwise:
-    emoji: "⏰"
-    category: "workflow-automation"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["docker"]
-    optional_deps: ["n8n"]
-    depends_on: "ar-collections-automation"
+name: n8n-payment-reminders
+description: Send tiered dunning reminders (friendly, then firm, then final) for outstanding invoices via n8n. Use when payment chasing is manual, or when deploying ar-collections-automation as an ongoing workflow.
 ---
 
 # n8n Payment Reminders

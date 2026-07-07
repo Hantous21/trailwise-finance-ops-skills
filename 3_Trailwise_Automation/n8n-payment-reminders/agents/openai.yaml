@@ -1,0 +1,4 @@
+interface:
+  display_name: "n8n Payment Reminders"
+  short_description: "Tiered dunning workflow"
+  default_prompt: "Use $n8n-payment-reminders to deploy payment reminders in n8n."

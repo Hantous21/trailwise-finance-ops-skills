@@ -1,0 +1,4 @@
+interface:
+  display_name: "Change Order Tracker"
+  short_description: "CO log with contract impact"
+  default_prompt: "Use $change-order-tracker to classify change orders and total contract impact."

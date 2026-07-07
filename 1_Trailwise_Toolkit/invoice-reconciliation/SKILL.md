@@ -1,16 +1,6 @@
 ---
-name: "invoice-reconciliation"
-description: "Use when matching vendor invoices to purchase orders and goods receipts — flag price/quantity variances, unmatched invoices, and route approvals within tolerance."
-homepage: "https://trailwiseai.com"
-disable-model-invocation: true
-metadata:
-  trailwise:
-    emoji: "🧾"
-    category: "accounts-payable"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "openpyxl"]
+name: invoice-reconciliation
+description: Use when matching vendor invoices to purchase orders and goods receipts — flag price/quantity variances, unmatched invoices, and route approvals within tolerance.
 ---
 
 # Invoice Reconciliation

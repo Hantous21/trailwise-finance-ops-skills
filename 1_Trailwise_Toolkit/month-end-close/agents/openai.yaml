@@ -1,0 +1,4 @@
+interface:
+  display_name: "Month-End Close"
+  short_description: "Dependency-aware close checklist"
+  default_prompt: "Use $month-end-close to run the close checklist and variance review."

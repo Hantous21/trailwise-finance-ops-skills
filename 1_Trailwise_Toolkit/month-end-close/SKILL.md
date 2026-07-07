@@ -1,16 +1,6 @@
 ---
-name: "month-end-close"
-description: "Build dependency-aware month-end close checklists, enforce sign-off order, calculate account-aware variances, and update bounded roll-forwards. Use when replacing recurring close spreadsheets or implementing reviewed accounting-close controls."
-homepage: "https://trailwiseai.com"
-disable-model-invocation: true
-metadata:
-  trailwise:
-    emoji: "📅"
-    category: "accounting-operations"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "openpyxl"]
+name: month-end-close
+description: Build dependency-aware month-end close checklists, enforce sign-off order, calculate account-aware variances, and update bounded roll-forwards. Use when replacing recurring close spreadsheets or implementing reviewed accounting-close controls.
 ---
 
 # Month-End Close

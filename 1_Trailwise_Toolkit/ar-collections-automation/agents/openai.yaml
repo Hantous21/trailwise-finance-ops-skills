@@ -1,0 +1,4 @@
+interface:
+  display_name: "AR Collections Automation"
+  short_description: "AR aging plus tiered dunning"
+  default_prompt: "Use $ar-collections-automation to build the AR aging report and dunning queue."

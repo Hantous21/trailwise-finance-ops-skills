@@ -1,0 +1,4 @@
+interface:
+  display_name: "Invoice Reconciliation"
+  short_description: "Three-way invoice matching"
+  default_prompt: "Use $invoice-reconciliation to match invoices to POs and receipts."

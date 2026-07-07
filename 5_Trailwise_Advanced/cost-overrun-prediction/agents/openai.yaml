@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cost Overrun Prediction"
+  short_description: "ML overrun early warning"
+  default_prompt: "Use $cost-overrun-prediction to score active projects for overrun risk."

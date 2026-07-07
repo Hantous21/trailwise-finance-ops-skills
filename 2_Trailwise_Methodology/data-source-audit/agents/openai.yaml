@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Source Audit"
+  short_description: "Inventory financial data sources"
+  default_prompt: "Use $data-source-audit to map where financial data lives and flag silos."

@@ -1,16 +1,6 @@
 ---
-name: "cost-overrun-prediction"
-description: "Predict which active projects will exceed budget using ML classification. Use when you have 20+ completed projects with budget/actual data and want early warning on overrun risk."
-homepage: "https://trailwiseai.com"
-disable-model-invocation: true
-metadata:
-  trailwise:
-    emoji: "🤖"
-    category: "predictive-analytics"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["scikit-learn", "pandas", "numpy", "joblib"]
+name: cost-overrun-prediction
+description: Predict which active projects will exceed budget using ML classification. Use when you have 20+ completed projects with budget/actual data and want early warning on overrun risk.
 ---
 
 # Cost Overrun Prediction
