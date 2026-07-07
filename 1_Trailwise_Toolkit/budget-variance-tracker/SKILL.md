@@ -1,16 +1,6 @@
 ---
-name: "budget-variance-tracker"
-description: "Track budget vs actual costs in real-time. Flag overruns, forecast final costs via burn-rate projection, and trigger alerts when thresholds are breached."
-homepage: "https://trailwise.com"
-disable model invocation: true
-metadata:
-  trailwise:
-    emoji: "📊"
-    category: "budget-management"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "openpyxl"]
+name: budget-variance-tracker
+description: Track budget vs actual costs, forecast final cost via burn rate, and alert on threshold breaches. Use when monitoring job budgets in spreadsheets, catching overruns late, or preparing variance reports.
 ---
 
 # Budget Variance Tracker

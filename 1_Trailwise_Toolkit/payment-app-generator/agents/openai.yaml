@@ -1,0 +1,4 @@
+interface:
+  display_name: "Payment App Generator"
+  short_description: "AIA G702/G703 pay apps"
+  default_prompt: "Use $payment-app-generator to build the monthly payment application."

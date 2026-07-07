@@ -1,15 +1,6 @@
 ---
 name: data-source-audit
 description: Audit all financial data sources in a company. Use when you lack a complete inventory of where financial data lives, when data is scattered across Excel, email, accounting software, and PDFs, or when planning automation but not knowing where to start.
-homepage: https://trailwise.com
-disable model invocation: true
-metadata:
-  trailwise:
-    emoji: "🔍"
-    category: "data-assessment"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
 ---
 
 # Data Source Audit

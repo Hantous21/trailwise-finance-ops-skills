@@ -1,0 +1,4 @@
+interface:
+  display_name: "n8n Invoice Approval"
+  short_description: "Invoice approval routing workflow"
+  default_prompt: "Use $n8n-invoice-approval to deploy approval routing in n8n."

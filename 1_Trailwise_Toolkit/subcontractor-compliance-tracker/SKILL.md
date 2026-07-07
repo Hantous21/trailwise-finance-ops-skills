@@ -1,16 +1,6 @@
 ---
-name: "subcontractor-compliance-tracker"
-description: "Track subcontractor insurance, licenses, and lien waivers. Auto-remind subs before expiration, flag non-compliant vendors, replace the 'master spreadsheet' with a dashboard."
-homepage: "https://trailwise.com"
-disable model invocation: true
-metadata:
-  trailwise:
-    emoji: "📋"
-    category: "compliance"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "openpyxl"]
+name: subcontractor-compliance-tracker
+description: Track subcontractor insurance, licenses, and lien waivers with expiry reminders. Use when managing COIs in a master spreadsheet, flagging non-compliant subs, or preparing for an audit.
 ---
 
 # Subcontractor Compliance Tracker

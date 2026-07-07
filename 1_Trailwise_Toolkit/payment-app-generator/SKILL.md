@@ -1,16 +1,6 @@
 ---
-name: "payment-app-generator"
-description: "Generate AIA G702/G703 payment applications from project data. Calculate completed work, retainage, and current amount due. Export to structured format for PDF generation."
-homepage: "https://trailwise.com"
-disable model invocation: true
-metadata:
-  trailwise:
-    emoji: "🏗️"
-    category: "construction-billing"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "openpyxl", "reportlab"]
+name: payment-app-generator
+description: Generate AIA G702/G703 payment applications with completed work, retainage, and current amount due. Use when preparing monthly pay apps, checking continuation sheet math, or exporting structured pay-app data.
 ---
 
 # Payment Application Generator (AIA G702/G703)

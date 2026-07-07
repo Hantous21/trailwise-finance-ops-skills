@@ -6,7 +6,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Skills-18-blue?style=flat-square" alt="Skills">
-  <img src="https://img.shields.io/badge/Categories-5-green?style=flat-square" alt="Categories">
+  <img src="https://img.shields.io/badge/Categories-6-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
 
@@ -127,7 +127,7 @@ Most small businesses run finance ops on spreadsheets and email. The gap between
 
 | Requirement | Details |
 |-------------|---------|
-| **Python 3.9+** | Most skills use Python scripts |
+| **Python 3.9+** | Most skills use Python scripts (commands below use python3; on Windows use python) |
 | **AI Coding Assistant** | Claude Code, Cursor, Copilot, or similar |
 | **Basic Python knowledge** | Ability to run scripts and install packages |
 | **Your data** | Excel files, CSVs, bank exports, or ERP exports |

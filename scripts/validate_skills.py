@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-import py_compile
+import ast
 import re
 import sys
 from pathlib import Path
@@ -64,8 +64,8 @@ def main() -> int:
     for python_file in sorted(ROOT.rglob("*.py")):
         if "__pycache__" not in python_file.parts:
             try:
-                py_compile.compile(str(python_file), doraise=True)
-            except py_compile.PyCompileError as exc:
+                ast.parse(python_file.read_text(encoding="utf-8"), filename=str(python_file))
+            except SyntaxError as exc:
                 failures.append(f"{python_file.relative_to(ROOT)}: {exc.msg}")
     for json_file in sorted(ROOT.rglob("*.json")):
         try:

@@ -1,16 +1,6 @@
 ---
-name: "change-order-tracker"
-description: "Classify, cost, and track construction change orders. Calculate cumulative impact on the contract sum, flag severity, and generate dispute documentation packets."
-homepage: "https://trailwiseai.com"
-disable model invocation: true
-metadata:
-  trailwise:
-    emoji: "📝"
-    category: "construction-billing"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas"]
+name: change-order-tracker
+description: Classify, cost, and track construction change orders and their cumulative contract impact. Use when logging COs in email threads, disputing unapproved work, or assembling dispute documentation packets.
 ---
 
 # Change Order Tracker

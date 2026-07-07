@@ -1,16 +1,6 @@
 ---
-name: "cash-flow-forecaster"
-description: "Forecast project and company cash flow. Generate S-curves, predict shortfalls, and model payment timing scenarios."
-homepage: "https://trailwise.com"
-metadata:
-  trailwise:
-    emoji: "💰"
-    category: "cash-management"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "matplotlib"]
-disable model invocation: true
+name: cash-flow-forecaster
+description: Forecast project and company cash flow with S-curves and payment-timing scenarios. Use when projecting cash position 8+ weeks out, anticipating shortfalls, or modeling draw and payment schedules.
 ---
 
 # Cash Flow Forecaster

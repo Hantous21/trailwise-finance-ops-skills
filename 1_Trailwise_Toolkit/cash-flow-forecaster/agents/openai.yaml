@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cash Flow Forecaster"
+  short_description: "S-curve cash projections"
+  default_prompt: "Use $cash-flow-forecaster to project the cash position and flag shortfalls."

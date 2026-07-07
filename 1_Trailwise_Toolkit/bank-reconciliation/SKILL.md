@@ -1,16 +1,6 @@
 ---
-name: "bank-reconciliation"
-description: "Use when matching bank statement transactions to ledger entries, flagging unmatched items, suggesting journal entries for discrepancies, or generating reconciliation reports."
-homepage: "https://trailwise.com"
-disable model invocation: true
-metadata:
-  trailwise:
-    emoji: "🏦"
-    category: "accounting-operations"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "openpyxl"]
+name: bank-reconciliation
+description: Use when matching bank statement transactions to ledger entries, flagging unmatched items, suggesting journal entries for discrepancies, or generating reconciliation reports.
 ---
 
 # Bank Reconciliation

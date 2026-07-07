@@ -1,0 +1,4 @@
+interface:
+  display_name: "Budget Variance Tracker"
+  short_description: "Budget vs actual with alerts"
+  default_prompt: "Use $budget-variance-tracker to flag overruns and forecast final cost."

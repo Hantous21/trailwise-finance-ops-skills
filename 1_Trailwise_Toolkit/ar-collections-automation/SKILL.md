@@ -1,16 +1,6 @@
 ---
-name: "ar-collections-automation"
-description: "Automate accounts receivable collections. Generate aging reports, send tiered dunning emails, predict late payments, and track collections activity."
-homepage: "https://trailwise.com"
-disable model invocation: true
-metadata:
-  trailwise:
-    emoji: "📮"
-    category: "accounts-receivable"
-    os: ["darwin", "linux", "win32"]
-    requires:
-      bins: ["python3"]
-    optional_deps: ["pandas", "openpyxl"]
+name: ar-collections-automation
+description: Generate AR aging reports, tiered dunning emails, and late-payment predictions. Use when chasing overdue invoices manually, building a collections cadence, or reporting AR aging to management.
 ---
 
 # AR Collections Automation

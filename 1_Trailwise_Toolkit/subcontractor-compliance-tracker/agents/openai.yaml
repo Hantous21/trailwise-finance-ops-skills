@@ -1,0 +1,4 @@
+interface:
+  display_name: "Subcontractor Compliance Tracker"
+  short_description: "COI and license expiry tracking"
+  default_prompt: "Use $subcontractor-compliance-tracker to flag expiring or missing sub compliance docs."

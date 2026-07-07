@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bank Reconciliation"
+  short_description: "Match bank lines to ledger entries"
+  default_prompt: "Use $bank-reconciliation to match the bank statement and flag unmatched items."
