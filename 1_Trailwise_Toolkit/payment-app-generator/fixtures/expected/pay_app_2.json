@@ -1,0 +1,95 @@
+{
+  "g702": {
+    "application_number": 2,
+    "period_to": "2026-06-30",
+    "project": "Riverside Office Building",
+    "contractor": "Trailwise Construction",
+    "owner": "Riverside Development LLC",
+    "architect": "Smith & Associates",
+    "contract_date": "2026-01-15",
+    "original_contract_sum": 750000.0,
+    "net_change_orders": 30000.0,
+    "contract_sum_to_date": 780000.0,
+    "total_completed_stored": 320000.0,
+    "retainage": 32000.0,
+    "total_earnings_less_retainage": 288000.0,
+    "less_previous_payments": 162000.0,
+    "current_amount_due": 126000.0,
+    "balance_to_finish": 492000.0,
+    "percent_complete": 41.03,
+    "change_orders": [
+      {
+        "co_number": "CO-1",
+        "description": "Foundation revision",
+        "amount": 30000.0,
+        "approved": true
+      }
+    ]
+  },
+  "g703": [
+    {
+      "line": 1,
+      "description": "01 Sitework",
+      "scheduled_value": 200000.0,
+      "change_orders": 0.0,
+      "total_scheduled": 200000.0,
+      "previous_completed": 120000.0,
+      "current_completed": 40000.0,
+      "total_completed": 160000.0,
+      "stored_materials": 0.0,
+      "total_completed_stored": 160000.0,
+      "retainage_pct": 10.0,
+      "retainage_held": 16000.0,
+      "less_retainage": 144000.0,
+      "completed_pct": 80.0
+    },
+    {
+      "line": 2,
+      "description": "02 Concrete",
+      "scheduled_value": 300000.0,
+      "change_orders": 0.0,
+      "total_scheduled": 300000.0,
+      "previous_completed": 60000.0,
+      "current_completed": 90000.0,
+      "total_completed": 150000.0,
+      "stored_materials": 10000.0,
+      "total_completed_stored": 160000.0,
+      "retainage_pct": 10.0,
+      "retainage_held": 16000.0,
+      "less_retainage": 144000.0,
+      "completed_pct": 50.0
+    },
+    {
+      "line": 3,
+      "description": "03 Steel",
+      "scheduled_value": 250000.0,
+      "change_orders": 0.0,
+      "total_scheduled": 250000.0,
+      "previous_completed": 0.0,
+      "current_completed": 0.0,
+      "total_completed": 0.0,
+      "stored_materials": 0.0,
+      "total_completed_stored": 0.0,
+      "retainage_pct": 10.0,
+      "retainage_held": 0.0,
+      "less_retainage": 0.0,
+      "completed_pct": 0.0
+    },
+    {
+      "line": "TOTAL",
+      "description": "TOTAL CONTRACT",
+      "scheduled_value": 750000.0,
+      "change_orders": 0.0,
+      "total_scheduled": 750000.0,
+      "previous_completed": 180000.0,
+      "current_completed": 130000.0,
+      "total_completed": 310000.0,
+      "stored_materials": 10000.0,
+      "total_completed_stored": 320000.0,
+      "retainage_pct": 10.0,
+      "retainage_held": 32000.0,
+      "less_retainage": 288000.0,
+      "completed_pct": 41.03
+    }
+  ]
+}
