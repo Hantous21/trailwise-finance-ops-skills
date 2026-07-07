@@ -115,6 +115,7 @@ class PaymentApplication:
     change_orders: List[ChangeOrder] = field(default_factory=list)
     status: PayAppStatus = PayAppStatus.DRAFT
     retainage_pct: float = 10.0         # Default retainage if not per-line
+    previous_certificates: Optional[float] = None  # Prior G702 line 6 total (set explicitly when known)
 
     @property
     def approved_co_total(self) -> float:
@@ -143,6 +144,8 @@ class PaymentApplication:
         """Sum of all previous pay app amounts (less retainage)."""
         if self.app_number <= 1:
             return 0
+        if self.previous_certificates is not None:
+            return self.previous_certificates
         return sum(l.previous_completed for l in self.lines) * (1 - self.retainage_pct / 100)
 
     @property
@@ -152,8 +155,8 @@ class PaymentApplication:
 
     @property
     def balance_to_finish(self) -> float:
-        """Remaining contract value including retainage."""
-        return self.contract_sum_to_date - self.total_completed_stored
+        """Remaining contract value INCLUDING retainage: G702 line 9 = line 3 - line 6."""
+        return self.contract_sum_to_date - self.total_earnings_less_retainage
 
     @property
     def percent_complete(self) -> float:

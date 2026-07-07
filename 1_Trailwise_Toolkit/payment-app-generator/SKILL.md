@@ -24,6 +24,7 @@ Generate AIA-style payment applications from a project schedule of values. Calcu
 - **Never auto-submit to client** — generate the app for human review first; a signed copy is the legal record.
 - **Verify quantities** — AI-extracted % complete must be validated against field reports before billing.
 - **Retainage is legal money** — wrong retainage calculation = contract dispute; double-check the `retainage_pct` per line and on the summary.
+- **Line 7 defaults to a derivation from G703 previous-completed (assumes constant retainage, no prior stored materials)** — pass `previous_certificates` explicitly when you have the prior certificate.
 - **Store signed copies** — every pay app should have a PDF + approval signature on file.
 
 ## CSV Input Format
