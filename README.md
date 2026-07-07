@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-23-blue?style=flat-square" alt="Skills">
-  <img src="https://img.shields.io/badge/Categories-6-green?style=flat-square" alt="Categories">
+  <img src="https://img.shields.io/badge/Skills-26-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Categories-7-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
 
@@ -21,7 +21,7 @@
 
 ## What is this?
 
-A collection of **AI agent skills** for automating finance operations. Built by a 7-year finance ops veteran — starting with construction and trades, expanding to other verticals as patterns emerge.
+A collection of **AI agent skills** for automating finance operations. Built by a 7-year finance ops veteran — starting with construction and trades, expanding to other verticals as patterns emerge. Restaurant operations skills now ship in `7_Restaurant_Operations/`.
 
 Each skill is a `SKILL.md` file — structured instructions that an AI coding assistant (Claude Code, Cursor, Copilot) can read and execute. You open a skill folder in your AI assistant, and it helps you implement the solution.
 
@@ -58,6 +58,9 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 | `job-cost-allocator` | Rule-based allocation of transactions to jobs and cost codes | `1_Trailwise_Toolkit/` |
 | `lien-waiver-tracker` | Track lien waiver collection, exposure, and draw blockers | `6_Contractor_Operations/` |
 | `certified-payroll-report` | WH-347-style weekly certified payroll with Davis-Bacon check | `6_Contractor_Operations/` |
+| `payment-app-html` | Render a structured G702/G703 pay app as a self-contained, print-ready HTML document | `4_Trailwise_Documents/` |
+| `ar-aging-excel` | Build an AR aging Excel workbook (summary + chart + invoice detail) from an invoice export | `4_Trailwise_Documents/` |
+| `daily-sales-reconciliation` | Tie out daily POS sales to bank deposits — cash variances, missing deposits, and card-processor fee drift | `7_Restaurant_Operations/` |
 
 ---
 

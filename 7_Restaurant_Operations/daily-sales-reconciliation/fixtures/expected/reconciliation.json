@@ -1,0 +1,61 @@
+{
+  "summary": {
+    "matched_cash_variance": -20.0,
+    "missing_deposit_amount": 780.0,
+    "days_flagged": 3,
+    "flag_count": 4
+  },
+  "days": [
+    {
+      "date": "2026-06-01",
+      "lag_date": "2026-06-02",
+      "cash_collected": 850.0,
+      "card_collected": 2400.0,
+      "cash_deposit": 850.0,
+      "card_deposit": 2340.0,
+      "cash_variance": 0.0,
+      "card_fee_pct": 2.5,
+      "flags": []
+    },
+    {
+      "date": "2026-06-02",
+      "lag_date": "2026-06-03",
+      "cash_collected": 920.0,
+      "card_collected": 2100.0,
+      "cash_deposit": 870.0,
+      "card_deposit": 2054.85,
+      "cash_variance": -50.0,
+      "card_fee_pct": 2.15,
+      "flags": [
+        "cash_short"
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "lag_date": "2026-06-04",
+      "cash_collected": 780.0,
+      "card_collected": 2600.0,
+      "cash_deposit": null,
+      "card_deposit": 2470.0,
+      "cash_variance": null,
+      "card_fee_pct": 5.0,
+      "flags": [
+        "missing_deposit",
+        "fee_out_of_band"
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "lag_date": "2026-06-05",
+      "cash_collected": 610.0,
+      "card_collected": 1900.0,
+      "cash_deposit": 640.0,
+      "card_deposit": 1862.0,
+      "cash_variance": 30.0,
+      "card_fee_pct": 2.0,
+      "flags": [
+        "cash_over"
+      ]
+    }
+  ]
+}

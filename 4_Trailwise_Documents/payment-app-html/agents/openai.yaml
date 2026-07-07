@@ -1,0 +1,4 @@
+interface:
+  display_name: "Payment App HTML"
+  short_description: "Print-ready G702/G703 pay app"
+  default_prompt: "Use $payment-app-html to render the pay app for printing to PDF."
