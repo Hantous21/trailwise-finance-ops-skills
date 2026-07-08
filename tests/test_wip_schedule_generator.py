@@ -77,7 +77,8 @@ class WIPGoldenTests(unittest.TestCase):
 
         # golden file comparison (after stripping as_of which is today's date)
         golden = json.loads(EXPECTED.read_text(encoding="utf-8"))
-        self.assertEqual(golden["summary"].pop("as_of"), report["summary"].pop("as_of"))
+        golden["summary"].pop("as_of")
+        report["summary"].pop("as_of")
         self.assertEqual(report, golden)
 
 
