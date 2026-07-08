@@ -1,0 +1,10 @@
+date,employee,role,hours
+2026-06-05,Alice,server,8
+2026-06-05,Ben,server,6
+2026-06-05,Cara,bartender,8
+2026-06-05,Dev,busser,6
+2026-06-06,Alice,server,7
+2026-06-06,Ben,server,7
+2026-06-06,Cara,bartender,6
+2026-06-06,Eli,busser,8
+2026-06-06,Mia,manager,8

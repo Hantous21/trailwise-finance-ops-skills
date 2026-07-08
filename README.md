@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-26-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Skills-29-blue?style=flat-square" alt="Skills">
   <img src="https://img.shields.io/badge/Categories-7-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
@@ -61,6 +61,9 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 | `payment-app-html` | Render a structured G702/G703 pay app as a self-contained, print-ready HTML document | `4_Trailwise_Documents/` |
 | `ar-aging-excel` | Build an AR aging Excel workbook (summary + chart + invoice detail) from an invoice export | `4_Trailwise_Documents/` |
 | `daily-sales-reconciliation` | Tie out daily POS sales to bank deposits — cash variances, missing deposits, and card-processor fee drift | `7_Restaurant_Operations/` |
+| `prime-cost-tracker` | Track weekly prime cost (food + beverage COGS + labor) against the 60/65 benchmark band | `7_Restaurant_Operations/` |
+| `vendor-price-creep-detector` | Detect per-item vendor price creep from purchase history | `7_Restaurant_Operations/` |
+| `tip-pool-calculator` | Penny-exact daily tip pool splitting by role-weighted hours | `7_Restaurant_Operations/` |
 
 ---
 
