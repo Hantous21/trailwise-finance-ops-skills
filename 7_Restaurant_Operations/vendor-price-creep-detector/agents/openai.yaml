@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vendor Price Creep Detector"
+  short_description: "Per-item vendor price-creep alerts"
+  default_prompt: "Use $vendor-price-creep-detector to scan purchase history for price creep and spikes."

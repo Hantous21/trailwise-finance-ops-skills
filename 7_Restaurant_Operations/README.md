@@ -5,6 +5,8 @@ Restaurant finance ops — daily controls first. Cash leaks the same day it happ
 | Status | Skill | Description |
 |---|---|---|
 | Shipped | `daily-sales-reconciliation` | Tie out daily POS sales to bank deposits — cash variances, missing deposits, and card-processor fee drift. |
-| Planned | `prime-cost-tracker` | Food + labor cost as a % of sales, by period and by menu category. |
-| Planned | `vendor-price-creep-detector` | Compare invoice unit prices to a baseline; flag drift above a configurable threshold. |
-| Planned | `tip-pool-calculator` | Allocate tips by hours, points, or sales with compliance-safe reporting. |
+| Shipped | `prime-cost-tracker` | Track weekly prime cost (food + beverage COGS + labor) against the 60/65 benchmark band. |
+| Shipped | `vendor-price-creep-detector` | Detect per-item vendor price creep from purchase history with configurable creep and spike thresholds. |
+| Shipped | `tip-pool-calculator` | Penny-exact daily tip pool splitting by role-weighted hours with compliance-safe reporting. |
+
+More restaurant skills ship as the prime-cost platform work matures.

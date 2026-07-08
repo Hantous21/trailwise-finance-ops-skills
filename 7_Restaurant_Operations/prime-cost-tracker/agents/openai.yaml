@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prime Cost Tracker"
+  short_description: "Weekly prime cost vs 60/65 band"
+  default_prompt: "Use $prime-cost-tracker to compute weekly prime cost from the P&L export."

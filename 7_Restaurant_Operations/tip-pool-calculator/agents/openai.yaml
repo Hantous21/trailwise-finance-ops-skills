@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tip Pool Calculator"
+  short_description: "Penny-exact role-weighted tip pooling"
+  default_prompt: "Use $tip-pool-calculator to split the daily tip pool by weighted hours."
