@@ -8,9 +8,22 @@ the implementation.
 
 from dataclasses import dataclass, field
 from datetime import date, timedelta
+from decimal import Decimal, ROUND_HALF_UP
 from typing import List, Dict, Optional
 from enum import Enum
 from uuid import UUID, uuid4
+
+
+# 1099-NEC filing thresholds by tax year
+THRESHOLD_2025 = Decimal("600")
+THRESHOLD_2026 = Decimal("2000")
+
+
+def get_1099_threshold(year: int) -> Decimal:
+    """Return the 1099-NEC filing threshold for a given tax year."""
+    if year >= 2026:
+        return THRESHOLD_2026
+    return THRESHOLD_2025
 
 
 class DocumentType(Enum):
@@ -78,6 +91,18 @@ class ComplianceDocument:
             self.status = ComplianceStatus.ACTIVE
 
 
+@dataclass
+class ContractorPayment:
+    """A payment to a subcontractor — tracked for 1099-NEC purposes."""
+    id: UUID = field(default_factory=uuid4)
+    subcontractor_id: UUID = field(default_factory=uuid4)
+    payment_date: date = field(default_factory=date.today)
+    amount: Decimal = field(default_factory=lambda: Decimal("0"))
+    payment_method: str = "ach"  # ach, check, credit_card, paypal, venmo
+    invoice_ref: str = ""
+    notes: str = ""
+
+
 class ComplianceManager:
     """Manage subcontractor compliance across projects."""
 
@@ -87,6 +112,7 @@ class ComplianceManager:
         self.reminder_schedule = reminder_schedule or [30, 15, 5]
         self.subs: Dict[UUID, Subcontractor] = {}
         self.docs: Dict[UUID, ComplianceDocument] = {}
+        self.payments: List[ContractorPayment] = []
 
     def add_subcontractor(self, sub: Subcontractor) -> UUID:
         self.subs[sub.id] = sub
@@ -95,6 +121,81 @@ class ComplianceManager:
     def add_document(self, doc: ComplianceDocument):
         doc.update_status(self.threshold)
         self.docs[doc.id] = doc
+
+    def add_payment(self, payment: ContractorPayment):
+        """Record a contractor payment for 1099 tracking."""
+        self.payments.append(payment)
+
+    def get_1099_report(self, tax_year: int = None) -> Dict:
+        """Generate YTD payment summary with 1099-NEC threshold flags.
+
+        Excludes credit card / 3rd-party network payments (reported on 1099-K).
+        Returns per-contractor totals with filing status.
+        """
+        if tax_year is None:
+            tax_year = date.today().year
+
+        threshold = get_1099_threshold(tax_year)
+        # Payment methods reported on 1099-K, not 1099-NEC
+        card_methods = {"credit_card", "paypal", "venmo", "square", "stripe"}
+
+        # Accumulate YTD payments per contractor
+        ytd: Dict[UUID, Decimal] = {}
+        for p in self.payments:
+            if p.payment_date.year != tax_year:
+                continue
+            if p.payment_method in card_methods:
+                continue  # reported on 1099-K
+            ytd[p.subcontractor_id] = ytd.get(p.subcontractor_id, Decimal("0")) + p.amount
+
+        contractors = []
+        for sub_id, total in sorted(ytd.items(), key=lambda x: -x[1]):
+            sub = self.subs.get(sub_id)
+            if not sub:
+                continue
+
+            # Check W-9 status — W-9s don't expire, so check existence (not status)
+            w9_on_file = any(
+                d.document_type == DocumentType.W9
+                for d in self.docs.values()
+                if d.subcontractor_id == sub_id
+            )
+
+            total_dec = total.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+            threshold_pct = (total_dec / threshold * Decimal("100")).quantize(Decimal("0.1"))
+
+            if total_dec >= threshold:
+                status = "FILE_1099"
+            elif total_dec >= threshold * Decimal("0.8"):
+                status = "APPROACHING_THRESHOLD"
+            else:
+                status = "BELOW_THRESHOLD"
+
+            contractors.append({
+                "company_name": sub.company_name,
+                "trade": sub.trade,
+                "ytd_paid": str(total_dec),
+                "threshold": str(threshold),
+                "threshold_pct": str(threshold_pct),
+                "filing_status": status,
+                "w9_on_file": w9_on_file,
+                "payment_count": sum(
+                    1 for p in self.payments
+                    if p.subcontractor_id == sub_id
+                    and p.payment_date.year == tax_year
+                    and p.payment_method not in card_methods
+                ),
+            })
+
+        return {
+            "tax_year": tax_year,
+            "filing_threshold": str(threshold),
+            "total_contractors_paid": len(ytd),
+            "contractors_requiring_1099": sum(1 for c in contractors if c["filing_status"] == "FILE_1099"),
+            "contractors_approaching": sum(1 for c in contractors if c["filing_status"] == "APPROACHING_THRESHOLD"),
+            "contractors_missing_w9": sum(1 for c in contractors if c["filing_status"] == "FILE_1099" and not c["w9_on_file"]),
+            "contractors": contractors,
+        }
 
     def get_dashboard_summary(self) -> Dict:
         """Get summary counts for dashboard."""

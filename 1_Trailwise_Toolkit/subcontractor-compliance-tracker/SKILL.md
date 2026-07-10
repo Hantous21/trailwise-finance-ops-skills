@@ -45,6 +45,36 @@ non_compliant = mgr.get_non_compliant_subs()
 - **Org-level coverage is the default** — one COI covers all projects unless explicitly per-project.
 - **Expired = uninsured on site** — treat any `EXPIRED` status as a stop-work trigger until renewed.
 
+## 1099-NEC Payment Tracking
+
+The compliance tracker also tracks contractor payments for 1099-NEC filing. See `references/1099-contractor-management.md` for full threshold tables, penalty schedules, and year-end checklists.
+
+```python
+from scripts.subcontractor_compliance import ContractorPayment
+from decimal import Decimal
+from datetime import date
+
+mgr.add_payment(ContractorPayment(
+    subcontractor_id=sub.id,
+    amount=Decimal("1500"),
+    payment_date=date(2026, 3, 15),
+    payment_method="ach",  # ach, check, credit_card, paypal, venmo, square, stripe
+    invoice_ref="INV-2026-0042",
+))
+
+report = mgr.get_1099_report(tax_year=2026)
+# Returns: per-contractor YTD totals, threshold %, filing status (FILE_1099 / APPROACHING / BELOW),
+# W-9 on file flag, payment count. Excludes credit card / 3rd-party payments (reported on 1099-K).
+```
+
+Key rules built into the engine:
+- **2026 threshold: $2,000** (was $600 in 2025). `get_1099_threshold(year)` returns the correct amount.
+- **Card payments excluded** — credit_card, paypal, venmo, square, stripe are reported on 1099-K, not 1099-NEC.
+- **W-9 on file** — checked by document existence (W-9s don't expire). `contractors_missing_w9` in the report flags anyone above threshold without a W-9.
+- **APPROACHING_THRESHOLD** — flagged at 80% of threshold so you can request W-9s early.
+- **Decimal arithmetic** — no float for money. Uses `Decimal` with `ROUND_HALF_UP`.
+- **Monthly close integration** — run `get_1099_report()` during month-end close Step 7 to check contractor YTD totals.
+
 ## CSV Format (reference)
 
 Columns: `company_name,contact_name,contact_email,contact_phone,trade,document_type,expiration_date,policy_number,notes`. One row per document; repeat company rows for multiple docs.
