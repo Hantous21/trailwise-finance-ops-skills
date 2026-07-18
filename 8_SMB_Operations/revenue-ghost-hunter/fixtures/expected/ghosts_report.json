@@ -1,0 +1,253 @@
+{
+  "as_of": "2026-07-01",
+  "count": 5,
+  "dollars_at_risk": 22000.0,
+  "queue_counts": {
+    "hot": 1,
+    "warm": 2,
+    "cold": 1,
+    "do-not-chase": 1
+  },
+  "queues": {
+    "hot": [
+      {
+        "who": "Acme Roofing",
+        "offer": "AI ops audit",
+        "amount": 12000.0,
+        "first_sent": "2026-06-01",
+        "last_touch": "2026-06-28",
+        "channel": "email",
+        "status_guess": "no-response",
+        "blocker": "owner on vacation",
+        "reply_warmth": 7.0,
+        "product_fit": 9.0,
+        "effort_to_restart": 2.0,
+        "score": 90.5,
+        "queue": "hot",
+        "do_not_chase": false,
+        "components": {
+          "size": 30.0,
+          "recency": 25.0,
+          "warmth": 14.0,
+          "fit": 13.5,
+          "effort": 8.0
+        }
+      }
+    ],
+    "warm": [
+      {
+        "who": "Warm Shop",
+        "offer": "menu rewrite",
+        "amount": 3000.0,
+        "first_sent": "2026-06-20",
+        "last_touch": "2026-06-27",
+        "channel": "sms",
+        "status_guess": "timing",
+        "blocker": "launch after hire",
+        "reply_warmth": 8.0,
+        "product_fit": 8.0,
+        "effort_to_restart": 3.0,
+        "score": 67.5,
+        "queue": "warm",
+        "do_not_chase": false,
+        "components": {
+          "size": 7.5,
+          "recency": 25.0,
+          "warmth": 16.0,
+          "fit": 12.0,
+          "effort": 7.0
+        }
+      },
+      {
+        "who": "Bright Co",
+        "offer": "website rebuild",
+        "amount": 4500.0,
+        "first_sent": "2026-05-01",
+        "last_touch": "2026-05-20",
+        "channel": "phone",
+        "status_guess": "price-stall",
+        "blocker": "budget next quarter",
+        "reply_warmth": 4.0,
+        "product_fit": 7.0,
+        "effort_to_restart": 5.0,
+        "score": 42.8,
+        "queue": "warm",
+        "do_not_chase": false,
+        "components": {
+          "size": 11.2,
+          "recency": 8.0,
+          "warmth": 8.0,
+          "fit": 10.5,
+          "effort": 5.0
+        }
+      }
+    ],
+    "cold": [
+      {
+        "who": "Cold LLC",
+        "offer": "bookkeeping",
+        "amount": 2500.0,
+        "first_sent": "2026-03-01",
+        "last_touch": "2026-03-15",
+        "channel": "email",
+        "status_guess": "no-response",
+        "blocker": "no reply ever",
+        "reply_warmth": 0.0,
+        "product_fit": 5.0,
+        "effort_to_restart": 8.0,
+        "score": 17.8,
+        "queue": "cold",
+        "do_not_chase": false,
+        "components": {
+          "size": 6.2,
+          "recency": 2.0,
+          "warmth": 0.0,
+          "fit": 7.5,
+          "effort": 2.0
+        }
+      }
+    ],
+    "do-not-chase": [
+      {
+        "who": "Hard No Inc",
+        "offer": "full automation",
+        "amount": 20000.0,
+        "first_sent": "2026-04-01",
+        "last_touch": "2026-04-10",
+        "channel": "email",
+        "status_guess": "internal-hard-no",
+        "blocker": "board said no",
+        "reply_warmth": 2.0,
+        "product_fit": 8.0,
+        "effort_to_restart": 3.0,
+        "score": 0.0,
+        "queue": "do-not-chase",
+        "do_not_chase": true,
+        "components": {
+          "size": 0.0,
+          "recency": 0.0,
+          "warmth": 0.0,
+          "fit": 0.0,
+          "effort": 0.0
+        }
+      }
+    ]
+  },
+  "ranked": [
+    {
+      "who": "Acme Roofing",
+      "offer": "AI ops audit",
+      "amount": 12000.0,
+      "first_sent": "2026-06-01",
+      "last_touch": "2026-06-28",
+      "channel": "email",
+      "status_guess": "no-response",
+      "blocker": "owner on vacation",
+      "reply_warmth": 7.0,
+      "product_fit": 9.0,
+      "effort_to_restart": 2.0,
+      "score": 90.5,
+      "queue": "hot",
+      "do_not_chase": false,
+      "components": {
+        "size": 30.0,
+        "recency": 25.0,
+        "warmth": 14.0,
+        "fit": 13.5,
+        "effort": 8.0
+      }
+    },
+    {
+      "who": "Warm Shop",
+      "offer": "menu rewrite",
+      "amount": 3000.0,
+      "first_sent": "2026-06-20",
+      "last_touch": "2026-06-27",
+      "channel": "sms",
+      "status_guess": "timing",
+      "blocker": "launch after hire",
+      "reply_warmth": 8.0,
+      "product_fit": 8.0,
+      "effort_to_restart": 3.0,
+      "score": 67.5,
+      "queue": "warm",
+      "do_not_chase": false,
+      "components": {
+        "size": 7.5,
+        "recency": 25.0,
+        "warmth": 16.0,
+        "fit": 12.0,
+        "effort": 7.0
+      }
+    },
+    {
+      "who": "Bright Co",
+      "offer": "website rebuild",
+      "amount": 4500.0,
+      "first_sent": "2026-05-01",
+      "last_touch": "2026-05-20",
+      "channel": "phone",
+      "status_guess": "price-stall",
+      "blocker": "budget next quarter",
+      "reply_warmth": 4.0,
+      "product_fit": 7.0,
+      "effort_to_restart": 5.0,
+      "score": 42.8,
+      "queue": "warm",
+      "do_not_chase": false,
+      "components": {
+        "size": 11.2,
+        "recency": 8.0,
+        "warmth": 8.0,
+        "fit": 10.5,
+        "effort": 5.0
+      }
+    },
+    {
+      "who": "Cold LLC",
+      "offer": "bookkeeping",
+      "amount": 2500.0,
+      "first_sent": "2026-03-01",
+      "last_touch": "2026-03-15",
+      "channel": "email",
+      "status_guess": "no-response",
+      "blocker": "no reply ever",
+      "reply_warmth": 0.0,
+      "product_fit": 5.0,
+      "effort_to_restart": 8.0,
+      "score": 17.8,
+      "queue": "cold",
+      "do_not_chase": false,
+      "components": {
+        "size": 6.2,
+        "recency": 2.0,
+        "warmth": 0.0,
+        "fit": 7.5,
+        "effort": 2.0
+      }
+    },
+    {
+      "who": "Hard No Inc",
+      "offer": "full automation",
+      "amount": 20000.0,
+      "first_sent": "2026-04-01",
+      "last_touch": "2026-04-10",
+      "channel": "email",
+      "status_guess": "internal-hard-no",
+      "blocker": "board said no",
+      "reply_warmth": 2.0,
+      "product_fit": 8.0,
+      "effort_to_restart": 3.0,
+      "score": 0.0,
+      "queue": "do-not-chase",
+      "do_not_chase": true,
+      "components": {
+        "size": 0.0,
+        "recency": 0.0,
+        "warmth": 0.0,
+        "fit": 0.0,
+        "effort": 0.0
+      }
+    }
+  ]
+}

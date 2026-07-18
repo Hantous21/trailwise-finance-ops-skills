@@ -88,6 +88,8 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 
 **Not added (too close to existing toolkit):** `retainage-recovery-radar` → use `retainage-tracker`; CO margin-guard twin → use `change-order-tracker`; WIP truth twin → use `wip-schedule-generator`; sub compliance twin → use `subcontractor-compliance-tracker`.
 
+**P0 engines shipped (scripts + fixtures + tests):** `revenue-ghost-hunter`, `cash-weather-report`, `bid-bond-gate`, `food-cost-bleed-map`. See `AUDIT-original-flagships-2026-07-18.md`.
+
 ---
 
 ## Free Skill vs FieldOS

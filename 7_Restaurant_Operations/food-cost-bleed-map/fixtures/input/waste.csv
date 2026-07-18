@@ -1,0 +1,5 @@
+item,waste_cost,bucket
+Burger,40,portion_drift
+Steak,80,shrink
+Pasta,20,prep_waste
+Salad,10,spoilage

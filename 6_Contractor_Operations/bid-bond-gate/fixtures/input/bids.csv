@@ -1,0 +1,5 @@
+name,contract_value,pursuit_hours,expected_margin_pct,capacity_strain,mobilization_cash,weeks_to_first_pay,weekly_fixed_burn,landmine_count,contract_known,political_override
+Main St school,500000,40,8,2,40000,4,10000,0,yes,no
+Logo Lust Tower,2000000,120,3,5,300000,8,10000,3,yes,yes
+Unknown form job,150000,20,10,3,20000,3,10000,1,no,no
+Solid commercial,300000,25,12,2,25000,3,10000,0,yes,no

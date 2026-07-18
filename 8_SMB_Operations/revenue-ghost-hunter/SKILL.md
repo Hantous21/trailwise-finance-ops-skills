@@ -11,23 +11,33 @@ Small businesses often do not lack leads — they **lose finished pursuit work t
 
 ## Workflow
 
-1. **Inventory economic ghosts** from quote exports, CRM CSV, or inbox notes. For each item capture: who | offer | $ | first-sent | last-touch | channel | status-guess | blocker. Status-guess only from evidence: `no-response | price-stall | competitor | timing | internal-hard-no | unclear`. Never invent deals.
-2. **Score recovery attractiveness (0–100)** — dollar size (30), recency of last-touch (25), warmth of prior replies (20), product fit clarity (15), effort to restart (10). Flag **do-not-chase** for hard no / legal conflict.
-3. **Segment queues** — Hot ≥70 personal note in 24h; Warm 40–69 value bump + soft CTA; Cold <40 one clean close-the-loop then archive.
-4. **Draft owner-safe scripts** per queue (SMS + email + call opener). No fake urgency, no invented discounts. Include **permission to close** so dead deals can be removed cleanly.
-5. **Publish a 7-day rescue plan** — who, channel, script id, effort minutes, success metric (`reply | meeting | deposit | closed-lost`).
+1. **Export** ghosts as CSV (see `fixtures/input/ghosts.csv`):
+   `who,offer,amount,first_sent,last_touch,channel,status_guess,blocker,reply_warmth,product_fit,effort_to_restart`
+2. **Run** the engine:
+   ```bash
+   python3 scripts/revenue_ghost_hunter.py fixtures/input/ghosts.csv \
+       --as-of 2026-07-01 --json out.json
+   ```
+3. **Inventory economic ghosts** — status_guess only from evidence:
+   `no-response | price-stall | competitor | timing | internal-hard-no | unclear`.
+   Never invent deals. Engine hard-stops `internal-hard-no` as `do-not-chase`.
+4. **Review scored queues** — Hot ≥70, Warm 40–69, Cold <40. Score weights:
+   size 30 (vs chaseable max), recency 25, warmth 20, fit 15, effort 10.
+5. **Draft owner-safe scripts** per queue (SMS + email + call opener). No fake urgency, no invented discounts. Include **permission to close**.
+6. **Publish a 7-day rescue plan** — who, channel, script id, effort minutes, success metric (`reply | meeting | deposit | closed-lost`).
 
 ## Controls
 
-- **Honest probability** beats optimism — label uncertainty.
+- **Honest probability** beats optimism — label residual uncertainty after the score.
 - Never auto-send; drafts only unless the user explicitly approves sends.
 - Respect opt-out / do-not-contact language.
 - If data is thin, ask for 5 sample deals instead of hallucinating a pipeline.
+- Size scale ignores `do-not-chase` rows so a huge killed deal cannot distort ranks.
 
 ## Deliverables
 
-1. Ghost ledger table
-2. Ranked queues + $ at risk
+1. Engine report (`out.json`) + ghost ledger table
+2. Ranked queues + $ at risk (chaseable only)
 3. Warm/hot/cold scripts
 4. 7-day rescue plan
 5. Process fix: every open item must have a next action + date

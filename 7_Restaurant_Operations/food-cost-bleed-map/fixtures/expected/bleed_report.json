@@ -1,0 +1,137 @@
+{
+  "theoretical_total": 1170.0,
+  "actual_total": 1570.0,
+  "bleed_total": 400.0,
+  "bleed_pct_total": 34.19,
+  "top_culprits": [
+    {
+      "item": "Steak",
+      "units_sold": 40.0,
+      "recipe_unit_cost": 14.0,
+      "theoretical_cogs": 560.0,
+      "actual_cogs": 720.0,
+      "bleed": 160.0,
+      "bleed_pct": 28.57,
+      "waste_cost": 80.0,
+      "primary_bucket": "shrink",
+      "missing_recipe": false
+    },
+    {
+      "item": "Burger",
+      "units_sold": 100.0,
+      "recipe_unit_cost": 3.5,
+      "theoretical_cogs": 350.0,
+      "actual_cogs": 450.0,
+      "bleed": 100.0,
+      "bleed_pct": 28.57,
+      "waste_cost": 40.0,
+      "primary_bucket": "portion_drift",
+      "missing_recipe": false
+    },
+    {
+      "item": "Mystery Special",
+      "units_sold": 20.0,
+      "recipe_unit_cost": null,
+      "theoretical_cogs": 0.0,
+      "actual_cogs": 90.0,
+      "bleed": 90.0,
+      "bleed_pct": null,
+      "waste_cost": 0.0,
+      "primary_bucket": "wrong_recipe",
+      "missing_recipe": true
+    },
+    {
+      "item": "Pasta",
+      "units_sold": 60.0,
+      "recipe_unit_cost": 2.0,
+      "theoretical_cogs": 120.0,
+      "actual_cogs": 150.0,
+      "bleed": 30.0,
+      "bleed_pct": 25.0,
+      "waste_cost": 20.0,
+      "primary_bucket": "prep_waste",
+      "missing_recipe": false
+    },
+    {
+      "item": "Salad",
+      "units_sold": 80.0,
+      "recipe_unit_cost": 1.75,
+      "theoretical_cogs": 140.0,
+      "actual_cogs": 160.0,
+      "bleed": 20.0,
+      "bleed_pct": 14.29,
+      "waste_cost": 10.0,
+      "primary_bucket": "spoilage",
+      "missing_recipe": false
+    }
+  ],
+  "items": [
+    {
+      "item": "Steak",
+      "units_sold": 40.0,
+      "recipe_unit_cost": 14.0,
+      "theoretical_cogs": 560.0,
+      "actual_cogs": 720.0,
+      "bleed": 160.0,
+      "bleed_pct": 28.57,
+      "waste_cost": 80.0,
+      "primary_bucket": "shrink",
+      "missing_recipe": false
+    },
+    {
+      "item": "Burger",
+      "units_sold": 100.0,
+      "recipe_unit_cost": 3.5,
+      "theoretical_cogs": 350.0,
+      "actual_cogs": 450.0,
+      "bleed": 100.0,
+      "bleed_pct": 28.57,
+      "waste_cost": 40.0,
+      "primary_bucket": "portion_drift",
+      "missing_recipe": false
+    },
+    {
+      "item": "Mystery Special",
+      "units_sold": 20.0,
+      "recipe_unit_cost": null,
+      "theoretical_cogs": 0.0,
+      "actual_cogs": 90.0,
+      "bleed": 90.0,
+      "bleed_pct": null,
+      "waste_cost": 0.0,
+      "primary_bucket": "wrong_recipe",
+      "missing_recipe": true
+    },
+    {
+      "item": "Pasta",
+      "units_sold": 60.0,
+      "recipe_unit_cost": 2.0,
+      "theoretical_cogs": 120.0,
+      "actual_cogs": 150.0,
+      "bleed": 30.0,
+      "bleed_pct": 25.0,
+      "waste_cost": 20.0,
+      "primary_bucket": "prep_waste",
+      "missing_recipe": false
+    },
+    {
+      "item": "Salad",
+      "units_sold": 80.0,
+      "recipe_unit_cost": 1.75,
+      "theoretical_cogs": 140.0,
+      "actual_cogs": 160.0,
+      "bleed": 20.0,
+      "bleed_pct": 14.29,
+      "waste_cost": 10.0,
+      "primary_bucket": "spoilage",
+      "missing_recipe": false
+    }
+  ],
+  "bucket_totals": {
+    "shrink": 160.0,
+    "portion_drift": 100.0,
+    "wrong_recipe": 90.0,
+    "prep_waste": 30.0,
+    "spoilage": 20.0
+  }
+}

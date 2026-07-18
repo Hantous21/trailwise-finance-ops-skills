@@ -1,0 +1,77 @@
+{
+  "cash_on_hand": 120000.0,
+  "counts": {
+    "BID": 2,
+    "BID-WITH-CONDITIONS": 1,
+    "NO-BID": 1
+  },
+  "pursuits": [
+    {
+      "name": "Main St school",
+      "verdict": "BID",
+      "contract_value": 500000.0,
+      "expected_margin_dollars": 40000.0,
+      "pursuit_tax": 6000.0,
+      "pursuit_tax_ratio": 0.15,
+      "capacity_strain": 2,
+      "buffer_weeks_after_mob": 8.0,
+      "landmine_count": 0,
+      "contract_known": true,
+      "political_override": false,
+      "reasons": [
+        "clear capacity, cash, and landmines"
+      ]
+    },
+    {
+      "name": "Logo Lust Tower",
+      "verdict": "NO-BID",
+      "contract_value": 2000000.0,
+      "expected_margin_dollars": 60000.0,
+      "pursuit_tax": 18000.0,
+      "pursuit_tax_ratio": 0.3,
+      "capacity_strain": 5,
+      "buffer_weeks_after_mob": -18.0,
+      "landmine_count": 3,
+      "contract_known": true,
+      "political_override": true,
+      "reasons": [
+        "capacity_strain>=5 (capacity hangover)",
+        "cash storm buffer_weeks=-18.00",
+        "landmine_count=3",
+        "political override labeled (not clean BID)"
+      ]
+    },
+    {
+      "name": "Unknown form job",
+      "verdict": "BID-WITH-CONDITIONS",
+      "contract_value": 150000.0,
+      "expected_margin_dollars": 15000.0,
+      "pursuit_tax": 3000.0,
+      "pursuit_tax_ratio": 0.2,
+      "capacity_strain": 3,
+      "buffer_weeks_after_mob": 10.0,
+      "landmine_count": 1,
+      "contract_known": false,
+      "political_override": false,
+      "reasons": [
+        "contract form unknown"
+      ]
+    },
+    {
+      "name": "Solid commercial",
+      "verdict": "BID",
+      "contract_value": 300000.0,
+      "expected_margin_dollars": 36000.0,
+      "pursuit_tax": 3750.0,
+      "pursuit_tax_ratio": 0.104,
+      "capacity_strain": 2,
+      "buffer_weeks_after_mob": 9.5,
+      "landmine_count": 0,
+      "contract_known": true,
+      "political_override": false,
+      "reasons": [
+        "clear capacity, cash, and landmines"
+      ]
+    }
+  ]
+}
