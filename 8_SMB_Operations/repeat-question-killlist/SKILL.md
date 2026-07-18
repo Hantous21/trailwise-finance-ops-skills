@@ -11,11 +11,15 @@ SMBs bleed hours on **identical questions** across five channels. Build a **kill
 
 ## Workflow
 
-1. **Mine and cluster** 2–6 weeks of email/chat/SMS/review notes by intent (not wording). Tag: pre-sale · post-sale · logistics · billing · complaint · edge-case. Estimate volume.
-2. **Build the killlist (top 10–15)** — columns: intent | example wording | volume | time cost | wrong-answer risk | current home | gap. Sort by time cost × wrong-answer risk.
-3. **Answer once** — canonical short (SMS) + medium (email) + long (FAQ). Include when to escalate. Plain brand voice; no legalese theater unless required.
-4. **Place on channel of truth** — one primary home per intent (FAQ, booking page, invoice email, receipt QR, chatbot). Duplicates only as pointers home to avoid drift.
-5. **Deflection with dignity plan** — prevention fix + passive answer + active macro/chatbot + staff leftover path. Measure same-question volume next 30 days.
+1. **Export intents** as CSV (see `fixtures/input/intents.csv`):
+   `intent,example,volume,minutes_per_answer,wrong_answer_risk,current_home,gap,tag`
+2. **Run** the engine:
+   ```bash
+   python3 scripts/repeat_question_killlist.py fixtures/input/intents.csv --top 10 --json out.json
+   ```
+3. **Rank** by `score = volume × minutes_per_answer × wrong_answer_risk` (risk clamped 1–5). Higher = kill first.
+4. **Answer once** — short (SMS), medium (email), long (FAQ) for each killlist intent. Include escalate-when.
+5. **Channel of truth + dignity** — one primary home per intent; no hostile-thread deflection; measure volume next 30 days.
 
 ## Controls
 
@@ -26,11 +30,11 @@ SMBs bleed hours on **identical questions** across five channels. Build a **kill
 
 ## Deliverables
 
-1. Ranked killlist table
+1. Ranked killlist (`out.json`)
 2. Canonical answers (short/medium/long)
 3. Channel-of-truth map
 4. Macro/chatbot snippets
-5. 30-day volume reduction scoreboard template
+5. Hours-in-top metric for live-answer cost
 
 ---
 

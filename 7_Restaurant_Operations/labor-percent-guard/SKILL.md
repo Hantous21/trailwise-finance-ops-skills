@@ -11,11 +11,16 @@ Labor % dies from **fear scheduling** and **reactive OT**. Build a **labor gate*
 
 ## Workflow
 
-1. **Demand spine** — covers or sales by daypart (lunch/dinner/bar/brunch). Flag outliers. **Covers drive bodies** — not "how we always did Saturday."
-2. **Skeleton first** — minimum stations that must be live for service standard. Mark each role: must | flex | cut-first.
-3. **Flex list not hero list** — rank who is actually callable without wrecking tomorrow's open. Separate permanent saviors (burnout risk).
-4. **Cut before OT rules** — mid-shift triggers: covers vs plan, ticket times. Actions: send home by volunteer/policy order · merge stations · stop expo double — **before** OT autorun.
-5. **Manager card** — when to add, when to cut, full-walls exceptions. Weekly scoreboard: labor % vs plan, OT hours, call-out rate.
+1. **Export dayparts** as CSV (see `fixtures/input/dayparts.csv`):
+   `business_date,daypart,covers,covers_plan,sales,scheduled_hours,actual_hours,wage_rate,skeleton_hours,target_labor_pct`
+2. **Run** the engine:
+   ```bash
+   python3 scripts/labor_percent_guard.py fixtures/input/dayparts.csv --json out.json
+   ```
+3. **Read actions** — `ok | cut_before_ot | over_target | under_skeleton | add_body`.
+   `labor_pct = actual_hours * wage_rate / sales * 100`.
+4. **Cut before OT** when labor % > target AND covers under plan. **Add body** on cover surge (>15% over plan) even if skeleton is short.
+5. **Manager card** — weekly scoreboard from action_counts + flags; keep training hours labeled, not smuggled into productive labor.
 
 ## Controls
 
@@ -26,11 +31,11 @@ Labor % dies from **fear scheduling** and **reactive OT**. Build a **labor gate*
 
 ## Deliverables
 
-1. Daypart demand spine
-2. Skeleton + flex map
-3. Mid-shift cut/add triggers
-4. Manager card (1 page)
-5. Weekly labor scoreboard template
+1. Engine daypart report (`out.json`)
+2. Skeleton vs actual flags
+3. Cut/add actions by daypart
+4. Manager card inputs (scoreboard)
+5. Weekly labor action tally
 
 ---
 

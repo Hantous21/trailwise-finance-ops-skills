@@ -90,6 +90,8 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 
 **P0 engines shipped (scripts + fixtures + tests):** `revenue-ghost-hunter`, `cash-weather-report`, `bid-bond-gate`, `food-cost-bleed-map`. See `AUDIT-original-flagships-2026-07-18.md`.
 
+**P1 engines shipped:** `drawer-truth-close` (real $ thresholds), `labor-percent-guard` (daypart labor%), `repeat-question-killlist` (intent ranking).
+
 ---
 
 ## Free Skill vs FieldOS
