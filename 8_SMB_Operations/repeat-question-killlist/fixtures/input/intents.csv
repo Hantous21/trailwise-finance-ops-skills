@@ -1,0 +1,9 @@
+intent,example,volume,minutes_per_answer,wrong_answer_risk,current_home,gap,tag
+hours,What time do you close?,80,2,2,footer FAQ,no,pre-sale
+parking,Is there parking?,40,3,1,,yes,logistics
+warranty,How long is the warranty?,25,8,5,email-only,yes,post-sale
+invoice,Can I get a copy of my invoice?,35,5,3,portal,no,billing
+allergy,Does the sauce have nuts?,15,10,5,,yes,edge-case
+pricing,Do you offer monthly pricing?,50,4,2,pricing page,no,pre-sale
+status,Where is my order?,60,6,4,tracking email,yes,logistics
+refund,How do I get a refund?,20,12,5,policy PDF,yes,complaint

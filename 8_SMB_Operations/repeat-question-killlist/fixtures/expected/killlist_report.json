@@ -1,0 +1,165 @@
+{
+  "count": 8,
+  "top_n": 5,
+  "hours_in_top_if_answered_live": 18.75,
+  "killlist": [
+    {
+      "intent": "status",
+      "example": "Where is my order?",
+      "volume": 60.0,
+      "minutes_per_answer": 6.0,
+      "wrong_answer_risk": 4.0,
+      "current_home": "tracking email",
+      "gap": true,
+      "tag": "logistics",
+      "score": 1440.0,
+      "rank": 1
+    },
+    {
+      "intent": "refund",
+      "example": "How do I get a refund?",
+      "volume": 20.0,
+      "minutes_per_answer": 12.0,
+      "wrong_answer_risk": 5.0,
+      "current_home": "policy PDF",
+      "gap": true,
+      "tag": "complaint",
+      "score": 1200.0,
+      "rank": 2
+    },
+    {
+      "intent": "warranty",
+      "example": "How long is the warranty?",
+      "volume": 25.0,
+      "minutes_per_answer": 8.0,
+      "wrong_answer_risk": 5.0,
+      "current_home": "email-only",
+      "gap": true,
+      "tag": "post-sale",
+      "score": 1000.0,
+      "rank": 3
+    },
+    {
+      "intent": "allergy",
+      "example": "Does the sauce have nuts?",
+      "volume": 15.0,
+      "minutes_per_answer": 10.0,
+      "wrong_answer_risk": 5.0,
+      "current_home": "",
+      "gap": true,
+      "tag": "edge-case",
+      "score": 750.0,
+      "rank": 4
+    },
+    {
+      "intent": "invoice",
+      "example": "Can I get a copy of my invoice?",
+      "volume": 35.0,
+      "minutes_per_answer": 5.0,
+      "wrong_answer_risk": 3.0,
+      "current_home": "portal",
+      "gap": false,
+      "tag": "billing",
+      "score": 525.0,
+      "rank": 5
+    }
+  ],
+  "all_ranked": [
+    {
+      "intent": "status",
+      "example": "Where is my order?",
+      "volume": 60.0,
+      "minutes_per_answer": 6.0,
+      "wrong_answer_risk": 4.0,
+      "current_home": "tracking email",
+      "gap": true,
+      "tag": "logistics",
+      "score": 1440.0,
+      "rank": 1
+    },
+    {
+      "intent": "refund",
+      "example": "How do I get a refund?",
+      "volume": 20.0,
+      "minutes_per_answer": 12.0,
+      "wrong_answer_risk": 5.0,
+      "current_home": "policy PDF",
+      "gap": true,
+      "tag": "complaint",
+      "score": 1200.0,
+      "rank": 2
+    },
+    {
+      "intent": "warranty",
+      "example": "How long is the warranty?",
+      "volume": 25.0,
+      "minutes_per_answer": 8.0,
+      "wrong_answer_risk": 5.0,
+      "current_home": "email-only",
+      "gap": true,
+      "tag": "post-sale",
+      "score": 1000.0,
+      "rank": 3
+    },
+    {
+      "intent": "allergy",
+      "example": "Does the sauce have nuts?",
+      "volume": 15.0,
+      "minutes_per_answer": 10.0,
+      "wrong_answer_risk": 5.0,
+      "current_home": "",
+      "gap": true,
+      "tag": "edge-case",
+      "score": 750.0,
+      "rank": 4
+    },
+    {
+      "intent": "invoice",
+      "example": "Can I get a copy of my invoice?",
+      "volume": 35.0,
+      "minutes_per_answer": 5.0,
+      "wrong_answer_risk": 3.0,
+      "current_home": "portal",
+      "gap": false,
+      "tag": "billing",
+      "score": 525.0,
+      "rank": 5
+    },
+    {
+      "intent": "pricing",
+      "example": "Do you offer monthly pricing?",
+      "volume": 50.0,
+      "minutes_per_answer": 4.0,
+      "wrong_answer_risk": 2.0,
+      "current_home": "pricing page",
+      "gap": false,
+      "tag": "pre-sale",
+      "score": 400.0,
+      "rank": 6
+    },
+    {
+      "intent": "hours",
+      "example": "What time do you close?",
+      "volume": 80.0,
+      "minutes_per_answer": 2.0,
+      "wrong_answer_risk": 2.0,
+      "current_home": "footer FAQ",
+      "gap": false,
+      "tag": "pre-sale",
+      "score": 320.0,
+      "rank": 7
+    },
+    {
+      "intent": "parking",
+      "example": "Is there parking?",
+      "volume": 40.0,
+      "minutes_per_answer": 3.0,
+      "wrong_answer_risk": 1.0,
+      "current_home": "",
+      "gap": true,
+      "tag": "logistics",
+      "score": 120.0,
+      "rank": 8
+    }
+  ]
+}

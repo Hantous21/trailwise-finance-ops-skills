@@ -1,0 +1,104 @@
+{
+  "leading_words": [
+    "skeleton first",
+    "flex list not hero list",
+    "cut before OT",
+    "covers drive bodies"
+  ],
+  "action_counts": {
+    "ok": 2,
+    "cut_before_ot": 1,
+    "under_skeleton": 1,
+    "add_body": 1
+  },
+  "dayparts": [
+    {
+      "business_date": "2026-07-01",
+      "daypart": "lunch",
+      "covers": 40.0,
+      "covers_plan": 45.0,
+      "sales": 1800.0,
+      "scheduled_hours": 12.0,
+      "actual_hours": 12.0,
+      "skeleton_hours": 10.0,
+      "wage_rate": 18.0,
+      "labor_cost": 216.0,
+      "labor_pct": 12.0,
+      "target_labor_pct": 30.0,
+      "flags": [],
+      "action": "ok"
+    },
+    {
+      "business_date": "2026-07-01",
+      "daypart": "dinner",
+      "covers": 90.0,
+      "covers_plan": 70.0,
+      "sales": 5200.0,
+      "scheduled_hours": 28.0,
+      "actual_hours": 30.0,
+      "skeleton_hours": 22.0,
+      "wage_rate": 20.0,
+      "labor_cost": 600.0,
+      "labor_pct": 11.54,
+      "target_labor_pct": 28.0,
+      "flags": [],
+      "action": "ok"
+    },
+    {
+      "business_date": "2026-07-02",
+      "daypart": "lunch",
+      "covers": 20.0,
+      "covers_plan": 40.0,
+      "sales": 900.0,
+      "scheduled_hours": 18.0,
+      "actual_hours": 18.0,
+      "skeleton_hours": 10.0,
+      "wage_rate": 18.0,
+      "labor_cost": 324.0,
+      "labor_pct": 36.0,
+      "target_labor_pct": 30.0,
+      "flags": [
+        "over_target",
+        "cut_before_ot"
+      ],
+      "action": "cut_before_ot"
+    },
+    {
+      "business_date": "2026-07-02",
+      "daypart": "dinner",
+      "covers": 55.0,
+      "covers_plan": 60.0,
+      "sales": 2400.0,
+      "scheduled_hours": 16.0,
+      "actual_hours": 14.0,
+      "skeleton_hours": 18.0,
+      "wage_rate": 20.0,
+      "labor_cost": 280.0,
+      "labor_pct": 11.67,
+      "target_labor_pct": 28.0,
+      "flags": [
+        "under_skeleton"
+      ],
+      "action": "under_skeleton"
+    },
+    {
+      "business_date": "2026-07-03",
+      "daypart": "brunch",
+      "covers": 80.0,
+      "covers_plan": 50.0,
+      "sales": 3500.0,
+      "scheduled_hours": 12.0,
+      "actual_hours": 12.0,
+      "skeleton_hours": 14.0,
+      "wage_rate": 19.0,
+      "labor_cost": 228.0,
+      "labor_pct": 6.51,
+      "target_labor_pct": 30.0,
+      "flags": [
+        "under_skeleton",
+        "add_body"
+      ],
+      "action": "add_body"
+    }
+  ]
+}

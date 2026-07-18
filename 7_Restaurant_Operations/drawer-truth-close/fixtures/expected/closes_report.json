@@ -1,0 +1,120 @@
+{
+  "thresholds": {
+    "recount_max_abs": 5.0,
+    "dual_count_min": 20.0,
+    "escalate_min": 50.0
+  },
+  "close_spine": [
+    "stop_sales",
+    "apply_tip_rules",
+    "count_drawer",
+    "pos_z",
+    "deposit_bag",
+    "photo_log"
+  ],
+  "action_counts": {
+    "ok": 1,
+    "recount": 1,
+    "dual_count": 1,
+    "escalate": 1
+  },
+  "drawers": [
+    {
+      "business_date": "2026-07-01",
+      "drawer_id": "bar-1",
+      "expected_cash": 400.0,
+      "counted_cash": 402.5,
+      "cash_variance": 2.5,
+      "card_variance": 0.0,
+      "voids": 20.0,
+      "comps": 15.0,
+      "tip_pool": 220.0,
+      "net_sales": 3200.0,
+      "owner": "Alex",
+      "action": "ok",
+      "variance_class": "in_tolerance",
+      "owner_required": false,
+      "morning_packet": {
+        "sales": 3200.0,
+        "comps": 15.0,
+        "voids": 20.0,
+        "cash_variance": 2.5,
+        "owner": "Alex",
+        "action": "ok"
+      }
+    },
+    {
+      "business_date": "2026-07-01",
+      "drawer_id": "foh-2",
+      "expected_cash": 300.0,
+      "counted_cash": 285.0,
+      "cash_variance": -15.0,
+      "card_variance": -5.0,
+      "voids": 40.0,
+      "comps": 0.0,
+      "tip_pool": 180.0,
+      "net_sales": 4100.0,
+      "owner": "Sam",
+      "action": "recount",
+      "variance_class": "mis_ring",
+      "owner_required": false,
+      "morning_packet": {
+        "sales": 4100.0,
+        "comps": 0.0,
+        "voids": 40.0,
+        "cash_variance": -15.0,
+        "owner": "Sam",
+        "action": "recount"
+      }
+    },
+    {
+      "business_date": "2026-07-02",
+      "drawer_id": "bar-1",
+      "expected_cash": 400.0,
+      "counted_cash": 370.0,
+      "cash_variance": -30.0,
+      "card_variance": 0.0,
+      "voids": 0.0,
+      "comps": 0.0,
+      "tip_pool": 150.0,
+      "net_sales": 2800.0,
+      "owner": "UNASSIGNED",
+      "action": "dual_count",
+      "variance_class": "short",
+      "owner_required": true,
+      "morning_packet": {
+        "sales": 2800.0,
+        "comps": 0.0,
+        "voids": 0.0,
+        "cash_variance": -30.0,
+        "owner": null,
+        "action": "dual_count"
+      }
+    },
+    {
+      "business_date": "2026-07-02",
+      "drawer_id": "foh-2",
+      "expected_cash": 300.0,
+      "counted_cash": 250.0,
+      "cash_variance": -50.0,
+      "card_variance": 0.0,
+      "voids": 10.0,
+      "comps": 25.0,
+      "tip_pool": 160.0,
+      "net_sales": 3600.0,
+      "owner": "Riley",
+      "action": "escalate",
+      "variance_class": "short",
+      "owner_required": true,
+      "morning_packet": {
+        "sales": 3600.0,
+        "comps": 25.0,
+        "voids": 10.0,
+        "cash_variance": -50.0,
+        "owner": "Riley",
+        "action": "escalate"
+      }
+    }
+  ],
+  "unassigned_owner_count": 1
+}

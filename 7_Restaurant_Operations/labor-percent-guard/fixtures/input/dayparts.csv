@@ -1,0 +1,6 @@
+business_date,daypart,covers,covers_plan,sales,scheduled_hours,actual_hours,wage_rate,skeleton_hours,target_labor_pct
+2026-07-01,lunch,40,45,1800,12,12,18,10,30
+2026-07-01,dinner,90,70,5200,28,30,20,22,28
+2026-07-02,lunch,20,40,900,18,18,18,10,30
+2026-07-02,dinner,55,60,2400,16,14,20,18,28
+2026-07-03,brunch,80,50,3500,12,12,19,14,30

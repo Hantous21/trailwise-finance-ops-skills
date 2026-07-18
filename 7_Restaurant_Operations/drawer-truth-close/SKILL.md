@@ -13,11 +13,19 @@ Distinct from `daily-sales-reconciliation` (POS totals vs bank days later) and `
 
 ## Workflow
 
-1. **Cash lane first** — no more sales → apply tip rules → count drawer → POS Z → deposit bag → photo/log. **Close is a spine** — skips break the match.
-2. **Variance classes** — count error | mis-ring | unrecorded paid-out | tip misallocation | shrink signal | deposit lag | system lag. Thresholds: under $X re-count; over $Y manager + dual count.
-3. **Tip math public** — one-page formula: pool in, role %, third-party deductions if any. 24–48h dispute path so drama is process, not parking-lot.
-4. **Void/comp freeze window** — after spine starts: manager code + reason; list on close packet. Morning edits need the same visibility.
-5. **Owner morning packet** — sales, comps, voids, labor flash, drawer variance + owner, deposit ID. **Variance has an owner** every time — never "misc."
+1. **Export closes** as CSV (see `fixtures/input/closes.csv`):
+   `business_date,drawer_id,expected_cash,counted_cash,expected_card,pos_card,voids,comps,tip_pool,net_sales,owner`
+2. **Run** the engine:
+   ```bash
+   python3 scripts/drawer_truth_close.py fixtures/input/closes.csv --json out.json
+   ```
+3. **Apply thresholds** (defaults replace old $X/$Y):
+   - `|variance| <= $5` → ok
+   - `> $5 and < $20` → recount
+   - `>= $20` → dual_count
+   - `>= $50` → escalate (owner required)
+4. **Cash lane first** — spine: stop sales → tip rules → count → POS Z → deposit → photo/log. Skips break the match.
+5. **Morning packet** — every drawer: sales, comps, voids, variance, **named owner**, action. Never `"misc"`.
 
 ## Controls
 
@@ -25,14 +33,15 @@ Distinct from `daily-sales-reconciliation` (POS totals vs bank days later) and `
 - Cameras/policy only if already lawful and disclosed.
 - Never coach skimming or under-reporting sales for tax.
 - Separate tip ownership from house funds when law requires.
+- `UNASSIGNED` owner always flags `owner_required`.
 
 ## Deliverables
 
-1. Close spine checklist (ordered)
-2. Variance class table + thresholds
-3. Tip math one-pager
-4. Void/comp freeze rule
-5. GM/owner morning packet template
+1. Engine report (`out.json`) + ordered close spine
+2. Variance actions (ok/recount/dual_count/escalate)
+3. Tip math accountability on packet
+4. Void/comp freeze rule (post-spine manager code)
+5. GM/owner morning packet rows
 
 ---
 
