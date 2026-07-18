@@ -32,11 +32,15 @@ comp = load(
 )
 
 
-def build_manager() -> comp.ComplianceManager:
+def build_manager(as_of: date | None = None) -> comp.ComplianceManager:
     """Import the input fixture into a fresh ComplianceManager."""
-    mgr = comp.ComplianceManager()  # default threshold=30, reminders [30,15,5]
+    mgr = comp.ComplianceManager(as_of=as_of)  # default threshold=30, reminders [30,15,5]
     comp.import_from_csv(str(INPUT_CSV), mgr)
     return mgr
+
+
+# Fixture stamped when Bright Electric COI was 7 days from expiry (2026-07-10).
+FIXTURE_AS_OF = date(2026, 7, 3)
 
 
 def expected_status(exp_str: str, today: date = date.today(), threshold: int = 30) -> str:
@@ -64,14 +68,14 @@ class ComplianceGoldenFixtureTests(unittest.TestCase):
     """Compare the report against the regenerated golden fixture (stable fields)."""
 
     def test_summary_stable_counts_match_fixture(self):
-        summary = build_manager().get_dashboard_summary()
+        summary = build_manager(as_of=FIXTURE_AS_OF).get_dashboard_summary()
         # total_documents / total_subcontractors never drift with the clock
         self.assertEqual(summary["total_documents"], EXPECTED["summary"]["total_documents"])
         self.assertEqual(summary["total_subcontractors"],
                          EXPECTED["summary"]["total_subcontractors"])
 
     def test_full_report_stable_fields_match_fixture(self):
-        report = build_manager().get_compliance_report()
+        report = build_manager(as_of=FIXTURE_AS_OF).get_compliance_report()
         actual = report["full_report"]
         expected = EXPECTED["full_report"]
         self.assertEqual(len(actual), len(expected))
@@ -86,7 +90,7 @@ class ComplianceGoldenFixtureTests(unittest.TestCase):
                 self.assertEqual(got[k], want[k], f"mismatch on {k}: {got[k]!r} vs {want[k]!r}")
 
     def test_non_compliant_stable_fields_match_fixture(self):
-        report = build_manager().get_compliance_report()
+        report = build_manager(as_of=FIXTURE_AS_OF).get_compliance_report()
         actual = report["non_compliant"]
         expected = EXPECTED["non_compliant"]
         self.assertEqual(len(actual), len(expected))
@@ -212,7 +216,7 @@ class ComplianceReminderCadenceTests(unittest.TestCase):
         )
         doc.update_status()
         self.assertEqual(doc.status, comp.ComplianceStatus.MISSING)
-        self.assertIsNone(doc.days_until_expiry)
+        self.assertIsNone(doc.days_until_expiry())
 
 
 if __name__ == "__main__":

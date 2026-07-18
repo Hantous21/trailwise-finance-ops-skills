@@ -68,19 +68,19 @@ class ComplianceDocument:
     coverage_amount: Optional[float] = None  # For COIs
     notes: str = ""
 
-    @property
-    def days_until_expiry(self) -> Optional[int]:
+    def days_until_expiry(self, as_of: Optional[date] = None) -> Optional[int]:
         if not self.expiration_date:
             return None
-        return (self.expiration_date - date.today()).days
+        ref = as_of or date.today()
+        return (self.expiration_date - ref).days
 
-    def update_status(self, expiring_threshold_days: int = 30):
+    def update_status(self, expiring_threshold_days: int = 30, as_of: Optional[date] = None):
         """Auto-calculate status from expiration date."""
         if not self.expiration_date:
             self.status = ComplianceStatus.MISSING
             return
 
-        days = self.days_until_expiry
+        days = self.days_until_expiry(as_of=as_of)
         if days is None:
             self.status = ComplianceStatus.MISSING
         elif days < 0:
@@ -107,19 +107,29 @@ class ComplianceManager:
     """Manage subcontractor compliance across projects."""
 
     def __init__(self, expiring_threshold_days: int = 30,
-                 reminder_schedule: List[int] = None):
+                 reminder_schedule: List[int] = None,
+                 as_of: Optional[date] = None):
         self.threshold = expiring_threshold_days
         self.reminder_schedule = reminder_schedule or [30, 15, 5]
+        self.as_of = as_of
         self.subs: Dict[UUID, Subcontractor] = {}
         self.docs: Dict[UUID, ComplianceDocument] = {}
         self.payments: List[ContractorPayment] = []
+
+    def _ref_date(self) -> date:
+        return self.as_of or date.today()
+
+    def refresh_statuses(self):
+        """Recompute every document against as_of / today."""
+        for doc in self.docs.values():
+            doc.update_status(self.threshold, as_of=self.as_of)
 
     def add_subcontractor(self, sub: Subcontractor) -> UUID:
         self.subs[sub.id] = sub
         return sub.id
 
     def add_document(self, doc: ComplianceDocument):
-        doc.update_status(self.threshold)
+        doc.update_status(self.threshold, as_of=self.as_of)
         self.docs[doc.id] = doc
 
     def add_payment(self, payment: ContractorPayment):
@@ -199,13 +209,14 @@ class ComplianceManager:
 
     def get_dashboard_summary(self) -> Dict:
         """Get summary counts for dashboard."""
+        self.refresh_statuses()
         counts = {s.value: 0 for s in ComplianceStatus}
         for doc in self.docs.values():
             counts[doc.status.value] += 1
 
         expiring_this_week = sum(
             1 for d in self.docs.values()
-            if d.days_until_expiry is not None and 0 <= d.days_until_expiry <= 7
+            if (days := d.days_until_expiry(self.as_of)) is not None and 0 <= days <= 7
         )
 
         return {
@@ -221,33 +232,37 @@ class ComplianceManager:
 
     def get_expiring_documents(self, days: int = 30) -> List[ComplianceDocument]:
         """Get documents expiring within N days."""
-        threshold_date = date.today() + timedelta(days=days)
+        ref = self._ref_date()
+        threshold_date = ref + timedelta(days=days)
         return [
             d for d in self.docs.values()
             if d.expiration_date
-            and date.today() <= d.expiration_date <= threshold_date
+            and ref <= d.expiration_date <= threshold_date
         ]
 
     def get_non_compliant_subs(self) -> List[Dict]:
         """Get subs with expired or missing documents."""
+        self.refresh_statuses()
         result = []
         for doc in self.docs.values():
             if doc.status in (ComplianceStatus.EXPIRED, ComplianceStatus.MISSING):
                 sub = self.subs.get(doc.subcontractor_id)
                 if sub and sub.is_active:
+                    days = doc.days_until_expiry(self.as_of)
                     result.append({
                         "subcontractor": sub.company_name,
                         "trade": sub.trade,
                         "document_type": doc.document_type.value,
                         "status": doc.status.value,
                         "expiration_date": doc.expiration_date.isoformat() if doc.expiration_date else None,
-                        "days_expired": abs(doc.days_until_expiry) if doc.days_until_expiry and doc.days_until_expiry < 0 else None,
+                        "days_expired": abs(days) if days is not None and days < 0 else None,
                         "contact_email": sub.contact_email,
                     })
         return result
 
     def get_compliance_report(self) -> Dict:
         """Full report for export."""
+        self.refresh_statuses()
         rows = []
         for doc in self.docs.values():
             sub = self.subs.get(doc.subcontractor_id)
@@ -262,7 +277,7 @@ class ComplianceManager:
                 "status": doc.status.value,
                 "issued_date": doc.issued_date.isoformat() if doc.issued_date else "",
                 "expiration_date": doc.expiration_date.isoformat() if doc.expiration_date else "",
-                "days_until_expiry": doc.days_until_expiry,
+                "days_until_expiry": doc.days_until_expiry(self.as_of),
                 "policy_number": doc.policy_number,
                 "notes": doc.notes,
             })
