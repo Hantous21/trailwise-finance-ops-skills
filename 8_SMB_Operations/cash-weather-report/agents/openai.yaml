@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cash Weather Report"
+  short_description: "30-day cash weather + go/no-go card"
+  default_prompt: "Use $cash-weather-report to produce a 30-day cash weather narrative and decision card."

@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Skills-29-blue?style=flat-square" alt="Skills">
-  <img src="https://img.shields.io/badge/Categories-7-green?style=flat-square" alt="Categories">
+  <img src="https://img.shields.io/badge/Skills-40-blue?style=flat-square" alt="Skills">
+  <img src="https://img.shields.io/badge/Categories-8-green?style=flat-square" alt="Categories">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
 </p>
 
@@ -64,6 +64,29 @@ Each skill is a `SKILL.md` file — structured instructions that an AI coding as
 | `prime-cost-tracker` | Track weekly prime cost (food + beverage COGS + labor) against the 60/65 benchmark band | `7_Restaurant_Operations/` |
 | `vendor-price-creep-detector` | Detect per-item vendor price creep from purchase history | `7_Restaurant_Operations/` |
 | `tip-pool-calculator` | Penny-exact daily tip pool splitting by role-weighted hours | `7_Restaurant_Operations/` |
+| `bid-bond-gate` | Bid/no-bid gate with capacity hangover, cash shape after win, contract landmines | `6_Contractor_Operations/` |
+| `food-cost-bleed-map` | Root-cause food cost bleed by station/item + 14-day cut plan | `7_Restaurant_Operations/` |
+| `labor-percent-guard` | Cover-driven daypart skeleton + cut-before-OT manager card | `7_Restaurant_Operations/` |
+| `eighty-six-chain-breaker` | FOH/BOH 86 source-of-truth, chain map, channel blast | `7_Restaurant_Operations/` |
+| `guest-recovery-playbook` | Complaint severity ladder + comp authority without blank-check comps | `7_Restaurant_Operations/` |
+| `drawer-truth-close` | Nightly cash close spine, variance owners, tip math public | `7_Restaurant_Operations/` |
+| `revenue-ghost-hunter` | Recover dead quotes/stalled proposals (pre-invoice silent revenue) | `8_SMB_Operations/` |
+| `founder-time-reclaim` | Owner bottleneck E/D/A/K map + one 14-day reclaim wedge | `8_SMB_Operations/` |
+| `cash-weather-report` | Plain-English 30-day cash weather + go/no-go decision card | `8_SMB_Operations/` |
+| `staff-brain-backup` | Tribal knowledge → playbooks + agent-safe matrix | `8_SMB_Operations/` |
+| `repeat-question-killlist` | Kill top repeated customer questions with channel-of-truth answers | `8_SMB_Operations/` |
+
+### Overlap policy (this pack)
+
+| Kept unique skill | Closest existing skill | Why distinct |
+|-------------------|------------------------|--------------|
+| `bid-bond-gate` | change-order / WIP / retainage | **Pre-award** pursuit gate; others run **post-award** |
+| `cash-weather-report` | `cash-flow-forecaster` | Founder weather narrative + decision card vs S-curve engine |
+| `food-cost-bleed-map` | `prime-cost-tracker`, `vendor-price-creep-detector` | Station/item root cause vs weekly band vs vendor unit prices |
+| `drawer-truth-close` | `daily-sales-reconciliation`, `tip-pool-calculator` | Physical close spine/ownership vs bank day-match vs pool math |
+| `labor-percent-guard` | `prime-cost-tracker` | Daypart cut/add rules vs reporting labor inside prime cost |
+
+**Not added (too close to existing toolkit):** `retainage-recovery-radar` → use `retainage-tracker`; CO margin-guard twin → use `change-order-tracker`; WIP truth twin → use `wip-schedule-generator`; sub compliance twin → use `subcontractor-compliance-tracker`.
 
 ---
 

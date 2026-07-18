@@ -1,0 +1,4 @@
+interface:
+  display_name: "86 Chain Breaker"
+  short_description: "FOH/BOH 86 protocol and chain map"
+  default_prompt: "Use $eighty-six-chain-breaker to define 86 source-of-truth, chain map, and blast checklist."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bid / Bond Gate"
+  short_description: "Bid/no-bid with capacity and cash hangover"
+  default_prompt: "Use $bid-bond-gate to score a bid/no-bid decision with capacity, cash, and landmines."

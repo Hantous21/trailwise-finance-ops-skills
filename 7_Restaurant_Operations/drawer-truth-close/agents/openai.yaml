@@ -1,0 +1,4 @@
+interface:
+  display_name: "Drawer Truth Close"
+  short_description: "Nightly cash close spine and variance owners"
+  default_prompt: "Use $drawer-truth-close to define the night close spine, variance classes, and morning packet."

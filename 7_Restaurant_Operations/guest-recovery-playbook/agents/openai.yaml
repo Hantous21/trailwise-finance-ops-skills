@@ -1,0 +1,4 @@
+interface:
+  display_name: "Guest Recovery Playbook"
+  short_description: "Complaint severity ladder and comp authority"
+  default_prompt: "Use $guest-recovery-playbook to classify a guest issue and apply the recovery ladder without over-comping."

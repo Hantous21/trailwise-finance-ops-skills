@@ -1,0 +1,4 @@
+interface:
+  display_name: "Labor Percent Guard"
+  short_description: "Daypart skeleton and cut-before-OT rules"
+  default_prompt: "Use $labor-percent-guard to design a cover-driven schedule gate and manager cut/add card."

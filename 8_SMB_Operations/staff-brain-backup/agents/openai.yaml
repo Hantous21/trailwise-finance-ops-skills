@@ -1,0 +1,4 @@
+interface:
+  display_name: "Staff Brain Backup"
+  short_description: "Tribal knowledge to AI-ready playbooks"
+  default_prompt: "Use $staff-brain-backup to extract a role's real workflow into playbooks and an agent-safe matrix."
