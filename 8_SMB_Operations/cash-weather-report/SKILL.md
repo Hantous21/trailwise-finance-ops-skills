@@ -13,22 +13,29 @@ Distinct from `cash-flow-forecaster`: that skill builds quantitative S-curve for
 
 ## Workflow
 
-1. **Normalize to cash lanes** — buckets: confirmed now | near-certain (≤7d contracted) | hoped | committed outflows | flexible outflows. **Known vs hoped money** never mix.
-2. **Build a 30-day spine** — opening balance → weekly deltas → closing. Use week buckets if daily data is junk. State assumptions line-by-line.
-3. **Call the weather** — Sunny: buffer > 4 weeks fixed costs. Cloudy: buffer 2–4 weeks OR one large hoped deposit is load-bearing. **Storm window**: dates where cash < safety floor (default 2 weeks fixed costs; user may override).
-4. **Risk radar (top 5)** — trigger, early signal, pre-commit action (collect / delay / cut / finance). Prefer actions that preserve goodwill.
+1. **Export events** as CSV (see `fixtures/input/events.csv`):
+   `date,amount,lane,label` with lanes
+   `confirmed | near_certain | hoped | committed | flexible`.
+2. **Run** the engine:
+   ```bash
+   python3 scripts/cash_weather_report.py fixtures/input/events.csv \
+       --opening 50000 --fixed-weekly 8000 --as-of 2026-07-01 --json out.json
+   ```
+3. **Review weather** — Sunny, Cloudy, or Storm week by week. **Known vs hoped money** never mix: hoped never enters the base balance.
+4. **Risk radar (top 5)** — for storm or cloudy weeks: trigger, early signal, pre-commit action (collect / delay / cut / finance).
 5. **Decision cards** — for the live choice (hire / buy / campaign): do now / do if X clears / defer. Attach cash test under base + stressed case.
 
 ## Controls
 
-- **No fake precision** — ranges beat fake point forecasts when data is dirty.
+- **No fake precision** — ranges / bands beat fake point forecasts when data is dirty.
 - Never restate accounting profit as available cash.
 - Do not recommend illegal tax delay or payroll bounce.
 - If inputs conflict, prefer bank certainty over invoice optimism.
+- `--fixed-weekly` must be > 0 (operating burn for buffer math).
 
 ## Deliverables
 
-1. One-page cash weather report (30 days)
+1. Engine weather report (`out.json`)
 2. Storm window dates (if any)
 3. Risk radar (≤5)
 4. Decision card for the live choice

@@ -1,0 +1,7 @@
+date,amount,lane,label
+2026-07-03,15000,near_certain,draw payment
+2026-07-05,-4000,committed,materials
+2026-07-10,8000,hoped,maybe client
+2026-07-12,-2500,flexible,discretionary gear
+2026-07-20,12000,confirmed,retainage release
+2026-07-25,-6000,committed,sub payment

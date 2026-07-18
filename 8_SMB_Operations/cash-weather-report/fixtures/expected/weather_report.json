@@ -1,0 +1,72 @@
+{
+  "as_of": "2026-07-01",
+  "opening": 50000.0,
+  "fixed_weekly": 8000.0,
+  "safety_floor": 16000.0,
+  "overall_weather": "cloudy",
+  "storm_windows": [],
+  "weeks": [
+    {
+      "week_ending": "2026-07-07",
+      "base_delta": 3000.0,
+      "base_balance": 53000.0,
+      "stress_balance": 45500.0,
+      "hoped_inflow": 0.0,
+      "weeks_of_fixed_cover": 6.62,
+      "weather": "sunny",
+      "labels": [
+        "draw payment",
+        "materials"
+      ]
+    },
+    {
+      "week_ending": "2026-07-14",
+      "base_delta": -10500.0,
+      "base_balance": 42500.0,
+      "stress_balance": 36250.0,
+      "hoped_inflow": 8000.0,
+      "weeks_of_fixed_cover": 5.31,
+      "weather": "cloudy",
+      "labels": [
+        "maybe client",
+        "discretionary gear"
+      ]
+    },
+    {
+      "week_ending": "2026-07-21",
+      "base_delta": 4000.0,
+      "base_balance": 46500.0,
+      "stress_balance": 40250.0,
+      "hoped_inflow": 0.0,
+      "weeks_of_fixed_cover": 5.81,
+      "weather": "sunny",
+      "labels": [
+        "retainage release"
+      ]
+    },
+    {
+      "week_ending": "2026-07-28",
+      "base_delta": -14000.0,
+      "base_balance": 32500.0,
+      "stress_balance": 26250.0,
+      "hoped_inflow": 0.0,
+      "weeks_of_fixed_cover": 4.06,
+      "weather": "sunny",
+      "labels": [
+        "sub payment"
+      ]
+    },
+    {
+      "week_ending": "2026-07-31",
+      "base_delta": -8000.0,
+      "base_balance": 24500.0,
+      "stress_balance": 18250.0,
+      "hoped_inflow": 0.0,
+      "weeks_of_fixed_cover": 3.06,
+      "weather": "cloudy",
+      "labels": []
+    }
+  ],
+  "closing_base": 24500.0,
+  "closing_stress": 18250.0
+}

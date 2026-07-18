@@ -13,11 +13,19 @@ Distinct from post-award tools (`change-order-tracker`, `wip-schedule-generator`
 
 ## Workflow
 
-1. **Frame the pursuit tax** — est. hours to bid, bid bond cost, site visit load. If pursuit tax > expected margin contribution, ask hard questions first.
-2. **Capacity hangover test** — if won: peak labor, super coverage, sub dependence, overlapping demobs. Score strain 1–5. High strain needs **named mitigation**, not hope.
-3. **Cash shape after win** — mobilization spend vs first pay app, retainage, stored materials rules. Fail gate if the win creates a storm window for working capital.
-4. **Contract landmines scan** — pay-if-paid / pay-when-paid, LD rate, indemnity breadth, warranty length, design risk dump. Each landmine: accept / price / redline / **no-bid**.
-5. **Gate verdict** — `BID / BID-WITH-CONDITIONS / NO-BID` + one-paragraph why. Conditions = bond strategy, partner, volume limit, contingency, revised markup. Explicitly **kill lust-bids**.
+1. **Export pursuits** as CSV (see `fixtures/input/bids.csv`) with
+   capacity strain, mobilization cash, weekly burn, landmines, contract_known.
+2. **Run** the gate:
+   ```bash
+   python3 scripts/bid_bond_gate.py fixtures/input/bids.csv \
+       --cash-on-hand 120000 --json out.json
+   ```
+3. **Read hard rules** — NO-BID on capacity_strain≥5 or buffer_weeks_after_mob<2.
+   BID-WITH-CONDITIONS when contract unknown, landmines≥2, strain≥4,
+   high pursuit tax, or political override. Else BID.
+4. **Write mitigations** for condition verdicts (bond strategy, partner, markup,
+   volume limit) — named mitigation beats hope.
+5. **Gate blue card for bid board** — one-paragraph why; **kill lust-bids**.
 
 ## Controls
 
@@ -28,10 +36,10 @@ Distinct from post-award tools (`change-order-tracker`, `wip-schedule-generator`
 
 ## Deliverables
 
-1. Pursuit tax estimate
-2. Capacity hangover score + mitigation
-3. Cash-shape-after-win sketch
-4. Landmine list with actions
+1. Engine report (`out.json`)
+2. Capacity hangover score + mitigation notes
+3. Cash-shape-after-win buffer weeks
+4. Landmine reasons list
 5. Gate verdict card for bid board
 
 ---

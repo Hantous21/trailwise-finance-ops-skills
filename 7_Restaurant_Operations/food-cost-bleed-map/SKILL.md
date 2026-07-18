@@ -13,11 +13,19 @@ Distinct from `prime-cost-tracker` (aggregate weekly %) and `vendor-price-creep-
 
 ## Workflow
 
-1. **Theoretical vs actual** — if recipes exist, theoretical cost from sales mix; else plate-cost ranges for top 20% of sales. Gap = bleed dollars. Label confidence.
-2. **Segment bleed lines** — portion drift | prep waste | spoilage | shrink | wrong recipe | discount/comp | vendor price | menu engineering. One primary bucket per issue — no multi-blame fog.
-3. **Find the 5 guilty items / stations** — Pareto drivers. Use **plate photograph memory**: correct plate vs what leaves the window.
-4. **14-day cut plan** — for each guilty line: control (scale, scoop, par, batch, 86 floor), owner, metric, check day. Prefer **one change per station**.
-5. **No phantom inventory rules** — daily mini-count only for the problem category (not a full boil-the-ocean count if the team is thin).
+1. **Export** sales + recipes (+ optional waste) CSVs — see `fixtures/input/`.
+2. **Run** the engine:
+   ```bash
+   python3 scripts/food_cost_bleed_map.py \
+       --sales fixtures/input/sales.csv \
+       --recipes fixtures/input/recipes.csv \
+       --waste fixtures/input/waste.csv \
+       --json out.json
+   ```
+3. **Review theoretical vs actual** — bleed = actual_cogs − units × recipe_unit_cost.
+   Missing recipe → `wrong_recipe` bucket. Do not invent plate costs.
+4. **Focus the top 5 culprits** — Pareto by bleed $. Use **plate photograph memory** with kitchen leads for portion check.
+5. **14-day cut plan** — one control per guilty station: scale, scoop, par, batch, 86 floor. Daily mini-count only on the problem category (**no phantom inventory**).
 
 ## Controls
 
@@ -28,7 +36,7 @@ Distinct from `prime-cost-tracker` (aggregate weekly %) and `vendor-price-creep-
 
 ## Deliverables
 
-1. Theoretical vs actual summary
+1. Engine report (`out.json`)
 2. Bleed map by bucket + $
 3. Top 5 guilty items/stations
 4. 14-day cut plan

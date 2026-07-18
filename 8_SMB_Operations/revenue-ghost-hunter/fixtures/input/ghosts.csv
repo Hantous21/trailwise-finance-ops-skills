@@ -1,0 +1,6 @@
+who,offer,amount,first_sent,last_touch,channel,status_guess,blocker,reply_warmth,product_fit,effort_to_restart
+Acme Roofing,AI ops audit,12000,2026-06-01,2026-06-28,email,no-response,owner on vacation,7,9,2
+Bright Co,website rebuild,4500,2026-05-01,2026-05-20,phone,price-stall,budget next quarter,4,7,5
+Cold LLC,bookkeeping,2500,2026-03-01,2026-03-15,email,no-response,no reply ever,0,5,8
+Hard No Inc,full automation,20000,2026-04-01,2026-04-10,email,internal-hard-no,board said no,2,8,3
+Warm Shop,menu rewrite,3000,2026-06-20,2026-06-27,sms,timing,launch after hire,8,8,3
