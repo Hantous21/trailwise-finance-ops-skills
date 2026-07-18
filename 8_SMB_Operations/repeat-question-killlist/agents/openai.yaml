@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repeat Question Killlist"
+  short_description: "Kill top repeated customer questions"
+  default_prompt: "Use $repeat-question-killlist to build a ranked FAQ killlist and channel-of-truth map."

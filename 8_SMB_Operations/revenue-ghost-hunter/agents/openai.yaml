@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revenue Ghost Hunter"
+  short_description: "Recover dead quotes and stalled proposals"
+  default_prompt: "Use $revenue-ghost-hunter to rank silent revenue and draft recovery scripts."

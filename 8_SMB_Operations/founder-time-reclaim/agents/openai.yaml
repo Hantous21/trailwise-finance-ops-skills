@@ -1,0 +1,4 @@
+interface:
+  display_name: "Founder Time Reclaim"
+  short_description: "Eliminate/delegate/automate owner bottleneck"
+  default_prompt: "Use $founder-time-reclaim to map the owner bottleneck and pick one 14-day reclaim wedge."

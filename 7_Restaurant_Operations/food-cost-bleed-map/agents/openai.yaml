@@ -1,0 +1,4 @@
+interface:
+  display_name: "Food Cost Bleed Map"
+  short_description: "Root-cause food cost bleed by station"
+  default_prompt: "Use $food-cost-bleed-map to attribute COGS bleed and draft a 14-day cut plan."
