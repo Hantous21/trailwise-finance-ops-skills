@@ -100,7 +100,7 @@ These skills are free (MIT). They run **one-time analyses** — you execute them
 
 [**FieldOS**](https://trailwiseai.com) takes the same workflows and runs them **ongoing** — scheduled automatically, with live dashboards, alerts, and multi-project consolidation.
 
-| This skill does (free) | FieldOS does ($49/mo) |
+| This skill does (free) | FieldOS does ($39/mo founding) |
 |------------------------|----------------------|
 | Runs when you remember | Runs weekly, alerts on Slack |
 | Reads a CSV you export | Pulls from QuickBooks automatically |
